@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Accessible Multi-Step Form</title>
+
+    <style>
+      body {
+        font-family: Arial;
+        padding: 20px;
+        background: #fafafa;
+      }
+      .step {
+        display: none;
+      }
+      .step.active {
+        display: block;
+      }
+      .buttons {
+        margin-top: 20px;
+      }
+      button {
+        padding: 8px 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="title">User Registration Wizard</h1>
+
+    <p id="progress" aria-live="polite" style="font-weight: bold">
+      Step 1 of 4
+    </p>
+
+    <form id="wizard" aria-labelledby="title">
+      <section
+        id="step1"
+        class="step active"
+        role="group"
+        aria-labelledby="step1-title"
+      >
+        <h2 id="step1-title">Personal Information</h2>
+
+        <label for="fname">Full Name</label><br />
+        <input id="fname" type="text" required /><br /><br />
+
+        <label for="dob">Date of Birth</label><br />
+        <input id="dob" type="date" required /><br /><br />
+
+        <div class="buttons">
+          <button type="button" id="next1">Next →</button>
+        </div>
+      </section>
+
+      <section
+        id="step2"
+        class="step"
+        aria-hidden="true"
+        role="group"
+        aria-labelledby="step2-title"
+      >
+        <h2 id="step2-title">Contact Information</h2>
+
+        <label for="email">Email</label><br />
+        <input id="email" type="email" required /><br /><br />
+
+        <label for="phone">Phone</label><br />
+        <input id="phone" type="tel" required /><br /><br />
+
+        <div class="buttons">
+          <button type="button" id="back1">← Back</button>
+          <button type="button" id="next2">Next →</button>
+        </div>
+      </section>
+
+      <section
+        id="step3"
+        class="step"
+        aria-hidden="true"
+        role="group"
+        aria-labelledby="step3-title"
+      >
+        <h2 id="step3-title">Address</h2>
+
+        <label for="address">Address</label><br />
+        <input id="address" type="text" required /><br /><br />
+
+        <label for="city">City</label><br />
+        <input id="city" type="text" required /><br /><br />
+
+        <div class="buttons">
+          <button type="button" id="back2">← Back</button>
+          <button type="button" id="next3">Next →</button>
+        </div>
+      </section>
+
+      <section
+        id="step4"
+        class="step"
+        aria-hidden="true"
+        role="group"
+        aria-labelledby="step4-title"
+      >
+        <h2 id="step4-title">Security</h2>
+
+        <label for="password">Password</label><br />
+        <input id="password" type="password" required /><br /><br />
+
+        <div class="buttons">
+          <button type="button" id="back3">← Back</button>
+          <button type="submit">Submit</button>
+        </div>
+      </section>
+    </form>
+
+    <script>
+      const steps = document.querySelectorAll(".step");
+      const progress = document.getElementById("progress");
+
+      function switchStep(index) {
+        steps.forEach((step, i) => {
+          const active = i === index;
+
+          step.classList.toggle("active", active);
+          step.setAttribute("aria-hidden", !active);
+
+          if (active) {
+            step.querySelector("h2").focus?.();
+          }
+        });
+
+        progress.textContent = `Step ${index + 1} of 4`;
+      }
+
+      document.getElementById("next1").onclick = () => switchStep(1);
+      document.getElementById("back1").onclick = () => switchStep(0);
+
+      document.getElementById("next2").onclick = () => switchStep(2);
+      document.getElementById("back2").onclick = () => switchStep(1);
+
+      document.getElementById("next3").onclick = () => switchStep(3);
+      document.getElementById("back3").onclick = () => switchStep(2);
+    </script>
+  </body>
+</html>

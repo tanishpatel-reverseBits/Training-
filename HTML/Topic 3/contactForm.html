@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Form With Custom Error Messages</title>
+  </head>
+  <body>
+    <form id="contact-form">
+      <fieldset>
+        <legend>Contact Form</legend>
+
+        <label for="name">Name:</label><br />
+        <input
+          type="text"
+          id="name"
+          name="name"
+          maxlength="20"
+          minlength="3"
+          required
+        /><br /><br />
+
+        <label for="email">Email:</label><br />
+        <input type="email" id="email" name="email" required /><br /><br />
+
+        <label for="message">Message:</label><br />
+        <textarea
+          id="message"
+          name="message"
+          rows="4"
+          cols="30"
+          maxlength="200"
+          minlength="10"
+          required
+        ></textarea
+        ><br /><br />
+
+        <input type="submit" value="Submit" />
+      </fieldset>
+    </form>
+
+    <script>
+      const form = document.getElementById("contact-form");
+
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const inputs = form.querySelectorAll("input, textarea");
+        inputs.forEach((input) => {
+          input.setCustomValidity("");
+        });
+
+        const name = form.elements["name"];
+        if (name.validity.valueMissing) {
+          name.setCustomValidity("Please enter your name.");
+        } else if (name.validity.tooShort) {
+          name.setCustomValidity("Name must be at least 3 characters long.");
+        } else if (name.validity.tooLong) {
+          name.setCustomValidity("Name cannot exceed 20 characters.");
+        }
+
+        const email = form.elements["email"];
+        if (email.validity.valueMissing) {
+          email.setCustomValidity("Please enter your email address.");
+        } else if (email.validity.typeMismatch) {
+          email.setCustomValidity("Please enter a valid email address.");
+        }
+
+        const message = form.elements["message"];
+        if (message.validity.valueMissing) {
+          message.setCustomValidity("Please enter your message.");
+        } else if (message.validity.tooShort) {
+          message.setCustomValidity(
+            "Message must be at least 10 characters long."
+          );
+        } else if (message.validity.tooLong) {
+          message.setCustomValidity("Message cannot exceed 200 characters.");
+        }
+
+        if (form.checkValidity()) {
+          form.submit();
+        } else {
+          form.reportValidity();
+        }
+      });
+    </script>
+  </body>
+</html>

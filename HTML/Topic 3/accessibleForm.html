@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Accessible Error Handling Form</title>
+    <style>
+      body {
+        font-family: Arial;
+        padding: 20px;
+      }
+      .error {
+        color: red;
+        margin-top: 4px;
+      }
+      .error-field {
+        border: 2px solid red;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="form-title"></h1>
+    <div
+      id="error-summary"
+      role="alert"
+      aria-live="assertive"
+      style="color: red; margin-bottom: 20px; display: none"
+    ></div>
+    <form id="signup-form" aria-labelledby="form-title" novalidate>
+      <div>
+        <label for="email">Email : </label><br />
+        <input
+          type="email"
+          name="email"
+          id="email"
+          aria-required="true"
+          aria-describedby="email-error"
+        />
+        <p id="email-error" class="error" style="display: none"></p>
+      </div>
+      <br />
+      <div>
+        <label for="password">Password : </label><br />
+        <input
+          type="password"
+          name="password"
+          id="password"
+          aria-required="true"
+          aria-describedby="password-error"
+        />
+        <p id="password-error" class="error" style="display: none"></p>
+      </div>
+      <br />
+      <div>
+        <label for="age">Age : </label><br />
+        <input
+          type="age"
+          name="age"
+          id="age"
+          min="18"
+          max="100"
+          aria-required="true"
+          aria-describedby="age-error"
+        />
+        <p id="age-error" class="error" style="display: none"></p>
+      </div>
+      <br /><br />
+      <button type="submit">Submit</button>
+    </form>
+
+    <script>
+      const form = document.getElementById("signup-form");
+      const errorSummary = document.getElementById("error-summary");
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        let messages = [];
+        let isValid = true;
+
+        const email = document.getElementById("email");
+        const emailError = document.getElementById("email-error");
+        const password = document.getElementById("password");
+        const passwordError = document.getElementById("password-error");
+        const age = document.getElementById("age");
+        const ageError = document.getElementById("age-error");
+
+        if (!email.value.includes("@")) {
+          isValid = false;
+          messages.push("Please enter a valid email address.");
+          emailError.textContent = "Invalid email format.";
+          emailError.style.display = "block";
+          email.classList.add("error-field");
+          email.setAttribute("aria-invalid", "true");
+        } else {
+          emailError.style.display = "none";
+          email.classList.remove("error-field");
+          email.removeAttribute("aria-invalid");
+        }
+
+        if (password.value.length < 8) {
+          isValid = false;
+          messages.push("Please enter a valid password.");
+          passwordError.textContent = "Invalid password format.";
+          passwordError.style.display = "block";
+          password.classList.add("error-field");
+          password.setAttribute("aria-invalid", "true");
+        } else {
+          passwordError.style.display = "none";
+          password.classList.remove("error-field");
+          password.removeAttribute("aria-invalid");
+        }
+
+        if (age.value < 18) {
+          isValid = false;
+          messages.push("Please enter a valid age.");
+          ageError.textContent = "Invalid age.";
+          ageError.style.display = "block";
+          age.classList.add("error-field");
+          age.setAttribute("aria-invalid", "true");
+        } else {
+          ageError.style.display = "none";
+          age.classList.remove("error-field");
+          age.removeAttribute("aria-invalid");
+        }
+
+        if (!isValid) {
+          errorSummary.innerHTML = `
+      <strong>Please correct the following errors:</strong><br>
+      ${messages.join("<br>")}
+    `;
+          errorSummary.style.display = "block";
+          document.querySelector(".error-field").focus();
+          return;
+        } else {
+          errorSummary.style.display = "none";
+          alert("Form submitted successfully!");
+        }
+      });
+    </script>
+  </body>
+</html>
