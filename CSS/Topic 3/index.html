@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Animations</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        overflow: hidden;
+        height: 100vh;
+        width: 100%;
+        position: relative;
+        background-color: #222;
+      }
+      div {
+        position: absolute;
+        border-radius: 10px;
+        width: 100px;
+        height: 100px;
+        background-color: crimson;
+      }
+      #one {
+        top: 0;
+        left: 0;
+        animation: one 3s ease-in-out 0.1s infinite reverse;
+      }
+      #two {
+        top: 0;
+        right: 0;
+        animation: two 3s ease-in-out 0.1s infinite;
+      }
+      #three {
+        bottom: 0;
+        left: 0;
+        animation: three 3s ease-in-out 0.1s infinite;
+      }
+      #four {
+        bottom: 0;
+        right: 0;
+        animation: four 3s ease-in-out 0.1s infinite reverse;
+      }
+      @keyframes one {
+        0% {
+          transform: translateX(0) translateY(0) rotateZ(0deg);
+        }
+        25% {
+          transform: translateX(50vw) translateY(0) rotateZ(90deg);
+        }
+        50% {
+          transform: translateX(50vw) translateY(50vh) rotateZ(180deg);
+        }
+        75% {
+          transform: translateX(0) translateY(50vh) rotateZ(270deg);
+        }
+        100% {
+          transform: translateX(0) translateY(0) rotateZ(360deg);
+        }
+      }
+      @keyframes two {
+        0% {
+          transform: translateX(0) translateY(0) rotateZ(0deg);
+        }
+        25% {
+          transform: translateX(-50vw) translateY(0) rotateZ(90deg);
+        }
+        50% {
+          transform: translateX(-50vw) translateY(50vh) rotateZ(180deg);
+        }
+        75% {
+          transform: translateX(0) translateY(50vh) rotateZ(270deg);
+        }
+        100% {
+          transform: translateX(0) translateY(0) rotateZ(360deg);
+        }
+      }
+      @keyframes three {
+        0% {
+          transform: translateX(0) translateY(0) rotateZ(0deg);
+        }
+        25% {
+          transform: translateX(50vw) translateY(0) rotateZ(90deg);
+        }
+        50% {
+          transform: translateX(50vw) translateY(-50vh) rotateZ(180deg);
+        }
+        75% {
+          transform: translateX(0) translateY(-50vh) rotateZ(270deg);
+        }
+        100% {
+          transform: translateX(0) translateY(0) rotateZ(360deg);
+        }
+      }
+      @keyframes four {
+        0% {
+          transform: translateX(0) translateY(0) rotateZ(0deg);
+        }
+        25% {
+          transform: translateX(-50vw) translateY(0) rotateZ(90deg);
+        }
+        50% {
+          transform: translateX(-50vw) translateY(-50vh) rotateZ(180deg);
+        }
+        75% {
+          transform: translateX(0) translateY(-50vh) rotateZ(270deg);
+        }
+        100% {
+          transform: translateX(0) translateY(0) rotateZ(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="one"></div>
+    <div id="two"></div>
+    <div id="three"></div>
+    <div id="four"></div>
+  </body>
+</html>
