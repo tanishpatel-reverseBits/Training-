@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Navbar Improved UX</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        color: #000;
+        background-color: #2d2d2d;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      nav {
+        margin: 20px;
+        padding: 14px 50px;
+        background-color: #fff;
+        border-radius: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        box-shadow: 0 4px 18px rgba(0, 0, 0, 0.1);
+      }
+
+      nav h1 {
+        font-weight: 700;
+        font-size: 32px;
+        animation: fadeUp 0.5s ease;
+      }
+
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 32px;
+      }
+
+      nav a {
+        animation: navLinks 1s ease;
+        text-decoration: none;
+        color: #000;
+        font-size: 16px;
+        padding: 6px 4px;
+        transition: 0.25s ease;
+      }
+
+      nav a:hover {
+        color: #0078ff;
+      }
+
+      nav a:focus {
+        outline: 2px solid #0078ff;
+        border-radius: 6px;
+      }
+
+      nav button {
+        padding: 10px 22px;
+        border-radius: 20px;
+        font-size: 15px;
+        cursor: pointer;
+        transition: 0.25s ease;
+      }
+
+      .btn-login {
+        animation: login 0.5s ease;
+        background: transparent;
+        border: 1px solid #000;
+      }
+      .btn-login:hover {
+        background: #eee;
+      }
+
+      .btn-signup {
+        animation: signup 0.5s ease;
+        background: #0078ff;
+        color: white;
+        border: 1px solid #0078ff;
+      }
+      .btn-signup:hover {
+        background: #005fcc;
+      }
+
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          scale: 0;
+        }
+        to {
+          opacity: 1;
+          scale: 1;
+        }
+      }
+
+      @keyframes navLinks {
+        from {
+          opacity: 0;
+          transform: translate(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translate(0px);
+        }
+      }
+
+      @media (max-width: 768px) {
+        nav {
+          padding: 14px 24px;
+        }
+        nav ul {
+          display: none;
+        }
+      }
+      @keyframes login {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes signup {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav>
+      <h1>logo</h1>
+
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+
+      <div>
+        <button class="btn-login">Login</button>
+        <button class="btn-signup">Sign Up</button>
+      </div>
+    </nav>
+  </body>
+</html>
