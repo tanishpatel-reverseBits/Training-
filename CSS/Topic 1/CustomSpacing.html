@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="CustomSpacing.css" />
+    <title>Custom Spacing</title>
+  </head>
+  <body>
+    <nav>
+      <h1>logo</h1>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="card">
+      <img
+        src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=60"
+        alt="Card Image"
+      />
+      <h2 class="title">Card Title</h2>
+      <p class="subtitle">
+        This is a subtitle for the card component. It provides additional
+        information.
+      </p>
+
+      <button class="card-btn">Show Alert</button>
+    </div>
+
+    <div class="alert" id="alertBox">
+      This is an alert message. Please pay attention to it!
+    </div>
+
+    <script>
+      const button = document.querySelector(".card-btn");
+      const alertBox = document.getElementById("alertBox");
+
+      button.addEventListener("click", () => {
+        alertBox.style.display = "block";
+        setTimeout(() => {
+          alertBox.style.display = "none";
+        }, 3000);
+      });
+    </script>
+  </body>
+</html>
