@@ -1,0 +1,50 @@
+:root {
+  --color-primary: #4caf50;
+  --color-primary-light: #388e3c;
+  --color-primary-dark: #2e7d32;
+  --color-secondary: #ff9800;
+  --color-secondary-light: #f57c00;
+  --color-secondary-dark: #e65100;
+  --color-background-light: #f5f5f5;
+  --color-background-dark: #111111;
+
+  --font-family-sans: "Helvetica Neue", Arial, sans-serif;
+  --font-family-serif: "Georgia", serif;
+
+  --font-xs: 0.75rem;
+  --font-sm: 0.875rem;
+  --font-base: 0.9rem;
+  --font-md: 1rem;
+  --font-lg: 1.25rem;
+  --font-xl: 1.5rem;
+  --font-2xl: 2rem;
+  --font-3xl: 3rem;
+  --font-4xl: 4rem;
+
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+  --space-4xl: 6rem;
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.15);
+
+  --screen-sm: 360px;
+  --screen-md: 768px;
+  --screen-lg: 1024px;
+  --screen-xl: 1280px;
+}
+
+[data-theme="dark"] {
+  --color-background-light: #111111;
+  --color-background-dark: #f5f5f5;
+}
