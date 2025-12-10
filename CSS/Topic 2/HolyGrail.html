@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Holy Grail Layout - CSS Grid</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --space-2: 8px;
+        --space-3: 12px;
+        --space-4: 16px;
+        --space-6: 24px;
+        --radius: 10px;
+        --bg: #f7f7f7;
+        --card-bg: white;
+        --text: #222;
+        --muted: #666;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background: var(--bg);
+        padding: var(--space-4);
+        display: flex;
+        justify-content: center;
+      }
+
+      .layout {
+        width: 100%;
+        max-width: 1400px;
+        display: grid;
+        gap: var(--space-4);
+
+        grid-template-columns: 260px 1fr 260px;
+        grid-template-rows: auto 1fr auto;
+
+        grid-template-areas:
+          "header header header"
+          "nav main sidebar"
+          "footer footer footer";
+      }
+
+      header {
+        grid-area: header;
+        background: var(--card-bg);
+        padding: var(--space-6);
+        border-radius: var(--radius);
+        font-size: 28px;
+        font-weight: 700;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      }
+
+      nav {
+        grid-area: nav;
+        background: var(--card-bg);
+        padding: var(--space-6);
+        border-radius: var(--radius);
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-3);
+        font-size: 16px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+      }
+
+      nav a {
+        text-decoration: none;
+        color: var(--text);
+        padding: var(--space-2) var(--space-3);
+        border-radius: 6px;
+        transition: 0.2s;
+      }
+
+      nav a:hover {
+        background: #eee;
+      }
+
+      main {
+        grid-area: main;
+        background: var(--card-bg);
+        padding: var(--space-6);
+        border-radius: var(--radius);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+      }
+
+      .article {
+        margin-bottom: var(--space-6);
+      }
+
+      .article h2 {
+        font-size: 22px;
+        margin-bottom: var(--space-2);
+      }
+
+      .article p {
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      aside {
+        grid-area: sidebar;
+        background: var(--card-bg);
+        padding: var(--space-6);
+        border-radius: var(--radius);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+      }
+
+      footer {
+        grid-area: footer;
+        background: var(--card-bg);
+        padding: var(--space-6);
+        border-radius: var(--radius);
+        text-align: center;
+        font-size: 14px;
+        color: var(--muted);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+      }
+
+      @media (max-width: 900px) {
+        .layout {
+          grid-template-columns: 200px 1fr;
+          grid-template-areas:
+            "header header"
+            "nav main"
+            "sidebar sidebar"
+            "footer footer";
+        }
+      }
+
+      @media (max-width: 600px) {
+        .layout {
+          grid-template-columns: 1fr;
+          grid-template-areas:
+            "header"
+            "nav"
+            "main"
+            "sidebar"
+            "footer";
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="layout">
+      <header>Holy Grail Layout (CSS Grid)</header>
+
+      <nav>
+        <a href="#">🏠 Home</a>
+        <a href="#">📄 Articles</a>
+        <a href="#">🎨 UI Design</a>
+        <a href="#">💻 Frontend Dev</a>
+        <a href="#">⚙ Settings</a>
+      </nav>
+
+      <main>
+        <div class="article">
+          <h2>Modern CSS Layout Techniques</h2>
+          <p>
+            Discover how CSS Grid enables powerful layouts with full control
+            over columns, rows, gaps, and content flow. Unlike flexbox, Grid is
+            designed specifically for two-dimensional layouts.
+          </p>
+        </div>
+
+        <div class="article">
+          <h2>Why Holy Grail Layout?</h2>
+          <p>
+            The holy grail layout is a classic web pattern: header, footer, main
+            content centered, and two sidebars. With grid-template-areas, this
+            becomes extremely easy and clean to implement.
+          </p>
+        </div>
+
+        <div class="article">
+          <h2>Responsive by Design</h2>
+          <p>
+            With a few media queries, the layout collapses gracefully on smaller
+            screens: the sidebars stack, navigation becomes vertical, and
+            content remains readable.
+          </p>
+        </div>
+      </main>
+
+      <aside>
+        <h2>Trending Topics</h2>
+        <p style="margin-top: 10px; color: #555">
+          • CSS Grid Examples<br />
+          • JavaScript Best Practices<br />
+          • UI Color Theory<br />
+          • Responsive Design Patterns<br />
+          • Modern Web Animations
+        </p>
+      </aside>
+
+      <footer>© 2025 Modern Web UI — Built with CSS Grid</footer>
+    </div>
+  </body>
+</html>
