@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Navbar</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        background: #f4f4f4;
+      }
+
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+        background: #333;
+        color: #fff;
+        position: relative;
+      }
+
+      .logo {
+        font-size: 20px;
+        font-weight: bold;
+      }
+
+      .nav-links {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+      }
+
+      .nav-links a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 16px;
+      }
+
+      .burger {
+        display: none;
+        cursor: pointer;
+        flex-direction: column;
+        gap: 5px;
+      }
+
+      .burger div {
+        width: 28px;
+        height: 3px;
+        background: #fff;
+        transition: 0.3s;
+      }
+
+      .burger.active .line1 {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+      .burger.active .line2 {
+        opacity: 0;
+      }
+      .burger.active .line3 {
+        transform: rotate(-45deg) translate(5px, -5px);
+      }
+
+      @media (max-width: 600px) {
+        .nav-links {
+          position: absolute;
+          top: 50px;
+          left: 0;
+          width: 100%;
+          flex-direction: column;
+          background: #333;
+          text-align: center;
+          padding: 15px 0;
+          display: none;
+          transition: 0.3s ease;
+        }
+
+        .nav-links.open {
+          display: flex;
+        }
+
+        .burger {
+          display: flex;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav>
+      <div class="logo">MyLogo</div>
+
+      <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+
+      <div class="burger">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+      </div>
+    </nav>
+
+    <script>
+      const burger = document.querySelector(".burger");
+      const navLinks = document.querySelector(".nav-links");
+
+      burger.addEventListener("click", () => {
+        navLinks.classList.toggle("open");
+        burger.classList.toggle("active");
+      });
+    </script>
+  </body>
+</html>
