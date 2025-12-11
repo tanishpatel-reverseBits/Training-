@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Dashboard</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      body {
+        background: #f5f6fa;
+        font-family: "Segoe UI", sans-serif;
+      }
+      .sidebar {
+        background: #343a40;
+        min-height: 100vh;
+      }
+      .sidebar a {
+        color: #fff;
+        text-decoration: none;
+        padding: 12px 18px;
+        display: block;
+      }
+      .sidebar a:hover {
+        background: rgba(255, 255, 255, 0.1);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <nav class="col-lg-2 col-md-3 d-none d-md-block sidebar text-white p-0">
+          <h4 class="p-3 border-bottom">Dashboard</h4>
+          <a href="#">🏠 Overview</a>
+          <a href="#">📊 Analytics</a>
+          <a href="#">📁 Reports</a>
+          <a href="#">⚙ Settings</a>
+        </nav>
+
+        <div class="offcanvas offcanvas-start" tabindex="-1" id="mobileSidebar">
+          <div class="offcanvas-header bg-dark text-white">
+            <h5 class="offcanvas-title">Dashboard</h5>
+            <button
+              type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="offcanvas"
+            ></button>
+          </div>
+          <div class="offcanvas-body bg-dark text-white p-0">
+            <a href="#" class="d-block px-3 py-2 text-white">🏠 Overview</a>
+            <a href="#" class="d-block px-3 py-2 text-white">📊 Analytics</a>
+            <a href="#" class="d-block px-3 py-2 text-white">📁 Reports</a>
+            <a href="#" class="d-block px-3 py-2 text-white">⚙ Settings</a>
+          </div>
+        </div>
+
+        <main class="col-lg-10 col-md-9 ms-auto px-4">
+          <nav
+            class="py-3 bg-white shadow-sm d-flex justify-content-between align-items-center mb-4"
+          >
+            <button
+              class="btn btn-dark d-md-none"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#mobileSidebar"
+            >
+              ☰
+            </button>
+            <h5 class="m-0">Responsive Dashboard</h5>
+          </nav>
+
+          <div class="row g-3 mb-4">
+            <div class="col-12 col-sm-6 col-xl-3">
+              <div class="p-3 bg-white shadow-sm rounded">
+                <h6>Total Users</h6>
+                <h3>12,450</h3>
+              </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-xl-3">
+              <div class="p-3 bg-white shadow-sm rounded">
+                <h6>Sales</h6>
+                <h3>$98,300</h3>
+              </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-xl-3">
+              <div class="p-3 bg-white shadow-sm rounded">
+                <h6>Visitors</h6>
+                <h3>45,210</h3>
+              </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-xl-3">
+              <div class="p-3 bg-white shadow-sm rounded">
+                <h6>Bounce Rate</h6>
+                <h3>32%</h3>
+              </div>
+            </div>
+          </div>
+
+          <div class="row g-3">
+            <div class="col-12 col-lg-8">
+              <div class="p-3 bg-white shadow-sm rounded" style="height: 350px">
+                <h5>Sales Chart</h5>
+                <p class="text-muted">(dummy area)</p>
+              </div>
+            </div>
+
+            <div class="col-12 col-lg-4">
+              <div class="p-3 bg-white shadow-sm rounded" style="height: 350px">
+                <h5>Recent Activity</h5>
+                <ul class="mt-3">
+                  <li>User John signed up</li>
+                  <li>New order #2341</li>
+                  <li>Payment received</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
