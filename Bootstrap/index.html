@@ -13,7 +13,7 @@
   </head>
   <body
     class="text-light d-flex flex-column gap-5"
-    style="background-color: #444"
+    style="background-color: #444; overflow-x: hidden"
   >
     <nav
       class="navbar sticky-top navbar-expand-md"
@@ -44,6 +44,9 @@
           class="offcanvas offcanvas-end"
           id="offcanvasNavbar"
           aria-labelledby="offcanvasNavbar"
+          data-bs-scroll="true"
+          data-bs-backdrop="static"
+          data-bs-keyboard="false"
         >
           <div class="offcanvas-header">
             <h5 class="offcanvas-title">OffCanvas</h5>
@@ -72,16 +75,19 @@
                   >Link</a
                 >
               </li>
-              <li class="dropdown nav-item">
+              <li class="dropdown dropdown nav-item">
                 <a
                   role="button"
                   href="#"
                   class="dropdown-toggle nav-link"
                   data-bs-toggle="dropdown"
+                  data-bs-auto-close="inside"
+                  data-bs-offset="10,20"
+                  data-bs-reference="parent"
                   aria-expanded="false"
                   >Dropdown</a
                 >
-                <ul class="dropdown-menu">
+                <ul class="dropdown-menu dropdown-menu-end">
                   <li><a href="#" class="dropdown-item">Action</a></li>
                   <li><a href="#" class="dropdown-item">Another action</a></li>
                   <li>
@@ -390,7 +396,13 @@
               </p>
             </div>
             <div class="mb-4">
-              <a href="#" class="btn btn-primary me-2">Go somewhere</a>
+              <a
+                href="#"
+                class="btn btn-primary me-2"
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal"
+                >Go somewhere</a
+              >
               <a href="#" class="card-link">Go There</a>
             </div>
             <div class="card-footer text-light">
@@ -505,6 +517,113 @@
         </div>
       </div>
     </div>
+
+    <div
+      class="modal"
+      tabindex="-1"
+      id="exampleModal"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+    >
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Modal title</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <p>Modal body text goes here.</p>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-bs-toggle="modal"
+              data-bs-target="#ExampleModal"
+            >
+              Save changes
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="modal"
+      tabindex="-1"
+      id="ExampleModal"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+    >
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Modal title</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum,
+              consectetur iste, aliquid dolores soluta repellat, vitae
+              asperiores maxime nihil debitis veniam. Architecto consequatur qui
+              ipsa natus delectus similique tenetur, incidunt facilis dolor id
+              modi quo aspernatur molestias nemo repellat recusandae totam
+              soluta asperiores minus ratione! Quam porro velit tempora,
+              consequatur quo maxime quaerat asperiores perspiciatis
+              necessitatibus distinctio eum facere? Fuga laborum distinctio
+              molestias numquam? Consequuntur dolorem placeat nostrum a, in,
+              reiciendis officia animi pariatur aliquid, nemo sapiente
+              distinctio est libero eaque nisi atque at quo sit voluptates? Unde
+              itaque voluptates corrupti doloremque temporibus? Omnis, nulla
+              amet maxime cumque unde laboriosam.
+            </p>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <ul class="pagination pagination-lg justify-content-center">
+      <li class="page-item">
+        <a class="page-link disabled" href="#" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+        </a>
+      </li>
+      <li class="page-item"><a class="page-link" href="#">1</a></li>
+      <li class="page-item active"><a class="page-link" href="#">2</a></li>
+      <li class="page-item"><a class="page-link" href="#">3</a></li>
+      <li class="page-item">
+        <a class="page-link" href="#" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+        </a>
+      </li>
+    </ul>
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
