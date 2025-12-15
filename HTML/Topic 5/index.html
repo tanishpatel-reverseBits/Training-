@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive images</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      div {
+        overflow: hidden;
+        height: 100vh;
+      }
+
+      div img {
+        height: 100%;
+        max-width: 100%;
+        object-fit: cover;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div>
+      <img
+        srcset="image_1.avif 400w, image_2.avif 800w, image_3.avif 1200w"
+        sizes="
+          (min-width: 1200px) 50vw,
+          (min-width: 800px) 75vw,
+          100vw
+        "
+        src="img-1200.avif"
+        alt="Example 1"
+      />
+    </div>
+
+    <div>
+      <img
+        srcset="image_4.avif 400w, image_5.avif 800w, image_6.avif 1200w"
+        sizes="
+          (min-width: 1200px) 50vw,
+          (min-width: 800px) 75vw,
+          100vw
+        "
+        src="img2-1200.avif"
+        alt="Example 2"
+      />
+    </div>
+  </body>
+</html>
