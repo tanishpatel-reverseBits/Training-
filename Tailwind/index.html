@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>aspect-ratio, column, break-after, break-before, break-inside</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body class="bg-zinc-900 text-white">
+    <div class="md:columns-2 lg:columns-3">
+      <img
+        src="https://images.unsplash.com/photo-1765840210734-654162cefb62?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwyM3x8fGVufDB8fHx8fA%3D%3D"
+        alt="Image 1"
+        class="aspect-[3/2] rounded-md mb-4"
+      />
+      <img
+        src="https://images.unsplash.com/photo-1765739983909-e82ee3a242c4?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw2MXx8fGVufDB8fHx8fA%3D%3D"
+        alt="Image 2"
+        class="rounded-md mb-4"
+      />
+      <img
+        src="https://images.unsplash.com/photo-1764616683448-322320bce277?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw2M3x8fGVufDB8fHx8fA%3D%3D"
+        alt="Image 3"
+        class="rounded-md mb-4"
+      />
+      <img
+        src="https://images.unsplash.com/photo-1765478233399-81afa6d45c6c?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw3MHx8fGVufDB8fHx8fA%3D%3D"
+        alt="Image 4"
+        class="rounded-md mb-4"
+      />
+      <img
+        src="https://images.unsplash.com/photo-1765509255710-4b889528f607?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw3N3x8fGVufDB8fHx8fA%3D%3D"
+        alt="Image 5"
+        class="rounded-md mb-4"
+      />
+      <img
+        src="https://images.unsplash.com/photo-1762887863007-26facb90ef24?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw4MHx8fGVufDB8fHx8fA%3D%3D"
+        alt="Image 6"
+        class="aspect-[3/2] rounded-md mb-4"
+      />
+      <img
+        src="https://images.unsplash.com/photo-1763730732397-1e78f5abac13?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw5M3x8fGVufDB8fHx8fA%3D%3D"
+        alt="Image 7"
+        class="aspect-[3/2] rounded-md mb-4"
+      />
+      <img
+        src="https://images.unsplash.com/photo-1763935322642-a58dc993f44d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxMDV8fHxlbnwwfHx8fHw%3D"
+        alt="Image 8"
+        class="rounded-md mb-4"
+      />
+      <img
+        src="https://images.unsplash.com/photo-1765498068429-b554881360b4?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxMjh8fHxlbnwwfHx8fHw%3D"
+        alt="Image 9"
+        class="rounded-md mb-4"
+      />
+    </div>
+
+    <div class="mb-10">
+      <span
+        class="box-decoration-slice bg-linear-to-r from-indigo-600 to-pink-500 px-2 text-4xl ..."
+      >
+        Hello<br />World
+      </span>
+    </div>
+
+    <div>
+      <span
+        class="box-decoration-clone bg-linear-to-r from-indigo-600 to-pink-500 px-2 text-4xl ..."
+      >
+        Hello<br />World
+      </span>
+    </div>
+
+    <div class="transform-3d">
+      <div
+        class="float-none bg-red-400 w-30 h-30 m-2 p-2 border-4 box-border -translate-z-2 rotate-x-80 rotate-z-45"
+      ></div>
+    </div>
+
+    <div class="border border-red-500">
+      <img class="float-left w-24" src="img.jpg" />
+    </div>
+
+    <div class="flow-root border border-green-500">
+      <img class="float-left w-24" src="img.jpg" />
+    </div>
+
+    <article>
+      <img
+        class="float-left"
+        src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=90"
+      />
+      <img
+        class="float-right"
+        src="https://images.unsplash.com/photo-1434394354979-a235cd36269d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&h=1000&q=90"
+      />
+      <p class="">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel soluta
+        deserunt assumenda voluptas repudiandae? Nobis eveniet fugiat magnam
+        consequuntur obcaecati aut sapiente quaerat eligendi eaque harum nihil
+        cupiditate debitis expedita provident hic, qui culpa. Reprehenderit
+        voluptatibus necessitatibus earum qui nesciunt? Voluptates repellendus
+        doloremque at reiciendis cum harum ab mollitia molestias tempora
+        pariatur tempore ex quaerat eaque id voluptatibus deserunt temporibus
+        repellat deleniti excepturi error corporis, minus aperiam nobis laborum?
+        Voluptate aperiam culpa sunt ducimus aliquam quisquam repellendus illo,
+        repellat alias nesciunt debitis dicta eaque laudantium commodi
+        accusantium similique aut qui quae suscipit expedita. Voluptate amet
+        commodi dolores. Sed, dolorem nemo!
+      </p>
+    </article>
+
+    <div class="relative">
+      <div class="absolute z-50 bg-red-500">Tooltip</div>
+    </div>
+
+    <div class="relative z-10 bg-blue-500">Another section</div>
+
+    <div class="relative isolate">
+      <div class="absolute z-50 bg-red-500">Tooltip</div>
+    </div>
+
+    <div class="relative z-10 bg-blue-500">Another section</div>
+
+    <div class="flex flex-row flex-wrap">
+      <div class="w-32 h-32 bg-gray-500 order-6">01</div>
+      <div class="w-32 h-32 bg-orange-500 order-5">02</div>
+      <div class="w-32 h-32 bg-red-600 order-4">03</div>
+      <div class="w-32 h-32 bg-gray-500 order-3">04</div>
+      <div class="w-32 h-32 bg-orange-500 order-2">05</div>
+      <div class="w-32 h-32 bg-red-900 order-1">06</div>
+    </div>
+
+    <div class="grid grid-rows-3 grid-flow-col gap-2">
+      <div class="bg-green-300 p-4">1</div>
+      <div class="bg-green-300 p-4 col-span-2">2 (span 2)</div>
+      <div class="bg-green-300 p-4">3</div>
+      <div class="bg-green-300 p-4">4</div>
+      <div class="bg-green-300 p-4">5</div>
+    </div>
+
+    <div class="grid grid-cols-3 auto-rows-auto gap-2">
+      <div class="bg-blue-300 p-4">1</div>
+      <div class="bg-blue-300 p-4">2</div>
+      <div class="bg-blue-300 p-4">3</div>
+      <div class="bg-blue-300 p-4">4<br />extra content<br />extra</div>
+      <div class="bg-blue-300 p-4">5</div>
+    </div>
+
+    <div class="grid grid-flow-col auto-cols-max gap-2 overflow-x-auto">
+      <div class="bg-purple-300 p-4">1000000000000000000000000000</div>
+      <div class="bg-purple-300 p-4">2</div>
+      <div class="bg-purple-300 p-4">3</div>
+    </div>
+
+    <div class="grid grid-flow-row-dense grid-cols-3 grid-rows-3 gap-3">
+      <div class="col-span-2 bg-purple-300">01</div>
+      <div class="col-span-2 bg-purple-300">02</div>
+      <div class="bg-purple-300">03</div>
+      <div class="bg-purple-300">04</div>
+      <div class="bg-purple-300">05</div>
+    </div>
+
+    <div class="grid auto-cols-[100px] grid-flow-col gap-2">
+      <div class="bg-blue-300">01</div>
+      <div class="bg-blue-300">02</div>
+      <div class="bg-blue-300">03</div>
+      <div class="bg-blue-300">01</div>
+      <div class="bg-blue-300">02</div>
+      <div class="bg-blue-300">03</div>
+      <div class="bg-blue-300">01</div>
+      <div class="bg-blue-300">02</div>
+      <div class="bg-blue-300">03</div>
+    </div>
+
+    <div class="grid grid-cols-[4rem_auto_4rem] justify-stretch">
+      <div>01</div>
+      <div>02</div>
+      <div>03</div>
+    </div>
+
+    <article>
+      <time>Mar 10, 2020</time>
+      <h2>Boost your conversion rate</h2>
+      <p class="line-clamp-3">
+        Nulla dolor velit adipisicing duis excepteur esse in duis nostrud
+        occaecat mollit incididunt deserunt sunt. Ut ut sunt laborum ex occaecat
+        eu tempor labore enim adipisicing minim ad. Est in quis eu dolore
+        occaecat excepteur fugiat dolore nisi aliqua fugiat enim ut cillum.
+        Labore enim duis nostrud eu. Est ut eiusmod consequat irure quis
+        deserunt ex. Enim laboris dolor magna pariatur. Dolor et ad sint
+        voluptate sunt elit mollit officia ad enim sit consectetur enim.
+      </p>
+      <div>
+        <img src="/img/lindsay.jpg" />
+        Lindsay Walton
+      </div>
+    </article>
+
+    <p
+      lang="de"
+      class="hyphens-auto leading-10 underline decoration-red-500 decoration-wavy decoration-from-font underline-offset-8 capitalize"
+    >
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus aperiam,
+      qui odio consectetur facilis voluptas ipsum
+      Kraftfahrzeug&shy;haftpflichtversicherunghjcdhjsbfkjjvnfdkjdfvdfkjkvbsbbu
+      laboriosam soluta, tempore quisquam eos provident, temporibus praesentium
+      fugiat repellat enim labore dignissimos placeat cumque itaque.
+      Reprehenderit ex odio reiciendis ipsam beatae blanditiis, non sapiente.
+      Provident eum aspernatur et perspiciatis non rem molestiae molestias
+      excepturi placeat dolores accusantium sed repellendus reprehenderit enim
+      aperiam dolorem ab nihil iure, vitae atque facilis laboriosam, officiis
+      deleniti! Consectetur a molestiae architecto modi id accusantium, quod
+      cumque, illum obcaecati et doloribus alias molestias odit adipisci cum ea
+      minus. Cum dolore delectus doloribus neque enim? Provident tempora magnam
+      ducimus.
+    </p>
+
+    <ul
+      class="list-disc marker:text-blue-600 marker:text-xl space-y-2 list-inside"
+    >
+      <li>5 cups chopped Porcini mushrooms</li>
+      <li>1/2 cup of olive oil</li>
+      <li>3lb of celery</li>
+    </ul>
+
+    <p class="mt-50 text-clip">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem
+      doloribus sapiente enim dolorum ea modi? Beatae tenetur vitae, ex dolor
+      quos eius neque illo consequuntur itaque impedit ut sequigcgghvghnnjjj
+      delectus ab eaque aliquid eveniet! Vel, officiis rem eius magni excepturi
+      eum sapiente aliquam esse ad similique ea id dolores corporis architecto
+      incidunt sequi et commodi praesentium. Culpa veritatis assumenda ut!
+      Distinctio maiores accusamus voluptatibus aliquam ex soluta impedit est
+      ducimus? Totam dignissimos quo quos eligendi consectetur officiis
+      veritatis quisquam itaque? Quo a aperiam fugit est eveniet id architecto
+      recusandae illum facere, itaque quam reiciendis accusamus. Molestias et
+      asperiores tempore eaque.
+    </p>
+
+    <article class="w-164 border-4 text-balance font-bold">
+      <h3>Beloved Manhattan soup stand closes</h3>
+      <p>
+        New Yorkers are facing the winter chill with less warmth this year as
+        the city's most revered soup stand unexpectedly shutters, following a
+        series of events that have left the community puzzled.
+      </p>
+    </article>
+
+    <p class="whitespace-pre w-64">
+      Hey everyone! It’s almost 2022 and we still don’t know if there are aliens
+      living among us, or do we? Maybe the person writing this is an alien. You
+      will never know.
+    </p>
+    <p class="whitespace-pre w-64">
+      Hey everyone! It’s almost 2022 and we still don’t know if there are aliens
+      living among us, or do we? Maybe the person writing this is an alien. You
+      will never know.
+    </p>
+
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="100%"
+      viewBox="0 0 187 187"
+      fill="none"
+      class="nav-logo__icon-svg"
+    >
+      <path
+        d="M126.049 76.7471L167.276 35.5197L150.805 19.0486L109.577 60.276C107.82 62.0398 104.808 60.7915 104.808 58.3009V0H81.517V70.3375C81.517 76.511 76.511 81.517 70.3375 81.517H0V104.808H58.3009C60.7915 104.808 62.0398 107.82 60.276 109.577L19.0548 150.805L35.5259 167.276L76.7533 126.049C78.5109 124.291 81.5232 125.533 81.5232 128.024V186.324H104.814V115.987C104.814 109.813 109.82 104.808 115.993 104.808H186.331V81.517H128.03C125.539 81.517 124.291 78.5047 126.055 76.7471H126.049Z"
+        fill="#333"
+      ></path>
+    </svg>
+
+    <div
+      class="h-164 overflow-y-scroll bg-fixed bg-[url('hero.png')] bg-cover bg-bottom"
+    >
+      <div class="h-[800px] p-6 text-white">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur
+        molestiae nesciunt et exercitationem aspernatur voluptates. Corrupti
+        maxime pariatur amet assumenda eveniet consectetur provident repellat
+        incidunt quidem veritatis quisquam in, eos expedita quasi perspiciatis
+        quaerat dicta perferendis illum, fugit molestiae illo nobis ut quas!
+        Inventore, nostrum quaerat numquam fugit, doloremque quibusdam nulla
+        earum similique consectetur est illum. Totam quis sapiente ratione
+        provident delectus doloremque ipsa consequuntur quidem ipsam omnis
+        adipisci facilis, repellendus quod quo eius, earum eum rem nemo natus
+        odio pariatur. Corrupti animi ex explicabo? Accusamus similique tempora
+        repudiandae, quasi maxime harum odio excepturi architecto? Explicabo
+        veniam assumenda quas, deserunt omnis hic, cumque deleniti velit
+        provident dolorem tempore sed esse praesentium harum officiis autem
+        repudiandae. Nulla ea explicabo sed distinctio dolor impedit nam
+        voluptas expedita, eveniet repudiandae quasi enim alias, numquam iusto
+        obcaecati excepturi neque mollitia similique quibusdam natus, id nemo
+        eligendi saepe? Consectetur voluptates ex, illo deleniti perspiciatis
+        ea, distinctio facere dignissimos eaque ipsa nesciunt quam quae facilis
+        rerum maxime cum voluptatem minus odio veritatis? Dolores quod ipsa
+        soluta ducimus ea quia voluptatem, minus sequi accusantium aperiam enim!
+        Cumque incidunt quas ipsa, veritatis repellendus quam officiis.
+        Voluptatibus sunt nulla quam, dolorum culpa inventore ad a similique
+        libero sequi vel distinctio itaque necessitatibus earum laboriosam
+        magnam fugit nobis consequuntur accusantium sit optio quia eius
+        officiis! A molestias quas nisi. Doloribus sequi eum repellendus, quae
+        reiciendis mollitia cupiditate eveniet nisi repellat nemo excepturi.
+        Sunt, tempore! Unde repellendus quod non sequi, sint incidunt cumque!
+        Cum cumque id reiciendis eum ab maiores repellat vero repellendus quos,
+        quis magni doloribus illum, quam inventore non consequuntur. Sapiente
+        incidunt dolorum aliquid illo molestiae ullam nemo alias dolorem. Quasi
+        enim asperiores nemo explicabo doloribus deleniti blanditiis accusamus
+        beatae odit! Eaque aperiam libero delectus, voluptas voluptate labore
+        aspernatur culpa in nulla incidunt hic vel saepe corrupti eveniet
+        deleniti fuga numquam vero impedit iusto natus dolorum illo neque ullam
+        ipsa. Vel earum totam doloribus odio necessitatibus numquam a aliquam
+        quidem perferendis molestias blanditiis dolorum, tempora voluptatem
+        delectus sapiente, reprehenderit facilis pariatur, deserunt sit animi!
+        Nobis, illum? Neque, ullam molestiae culpa iure in vero dicta
+        consequuntur perspiciatis quia dolor placeat aliquid, magni pariatur
+        nihil necessitatibus ipsum fugiat natus similique repudiandae
+        voluptatibus blanditiis amet sit soluta at! Iusto magnam nulla minus
+        nisi ducimus odio expedita quidem cumque vero accusamus voluptatem, ut
+        tenetur, reiciendis aliquam, necessitatibus ratione tempora. Sapiente
+        omnis officia suscipit dolor consequatur modi fugiat nesciunt aspernatur
+        blanditiis voluptatibus laborum ut saepe nemo laudantium officiis sunt,
+        perspiciatis qui ullam at corporis culpa a, reiciendis ipsam. Quos aut
+        quam minima perspiciatis nostrum exercitationem maxime eligendi vel
+        provident repudiandae voluptatum eveniet labore fugiat doloremque odio,
+        distinctio quis minus totam veritatis? Illo, ipsum voluptatem
+        architecto, amet aspernatur illum soluta unde porro ea ut deleniti odio
+        voluptate. Ipsum incidunt maiores laudantium reiciendis non, sapiente
+        aperiam voluptatum? Iure porro sequi similique veritatis facere tempore
+        error consequatur, assumenda ullam animi reiciendis cumque sint? Iste
+        sunt illo ab, ex illum laudantium optio sit ut nihil aperiam nesciunt
+        veritatis et ratione. Laudantium iure et cumque voluptates! Cumque
+        quisquam, beatae illo blanditiis veniam inventore suscipit fugiat in?
+        Quod, optio? Ducimus corrupti dicta natus tenetur ullam, culpa
+        blanditiis, assumenda nesciunt temporibus facilis omnis voluptas quaerat
+        iusto qui repellendus laborum cupiditate nihil. Modi temporibus,
+        blanditiis corporis expedita, similique aliquid nulla dolores numquam
+        eum libero aliquam odio nobis, laboriosam facere voluptatem. Hic
+        doloribus nesciunt placeat. Perspiciatis neque quisquam impedit nihil
+        ipsam saepe. Voluptatibus asperiores illo temporibus magni provident
+        dolorem cupiditate voluptate sapiente, id, repellat autem minima, beatae
+        blanditiis molestiae explicabo et ipsam alias deleniti? Minus esse
+        beatae libero, nobis, officia porro laudantium accusantium repudiandae,
+        iusto neque molestias voluptatum vel eius ea! Perferendis delectus odio
+        dolorum harum eos quo, beatae porro, quas, sit saepe quaerat esse maxime
+        excepturi eaque recusandae voluptas voluptatem atque maiores. A
+        similique sequi consectetur expedita corporis enim nemo quia tempora
+        impedit quasi, laboriosam illo perferendis? Similique est iusto
+        necessitatibus nihil eum, incidunt recusandae aut. Minus corrupti
+        accusamus illo ea quas neque deserunt vero cumque laborum, quidem soluta
+        quos nobis esse distinctio, illum dolorem nulla maiores voluptatem,
+        voluptates saepe itaque hic. Quo impedit at culpa aliquid placeat labore
+        dolores magnam recusandae cumque et expedita dicta ea repellat, sit
+        vitae deserunt ullam corporis amet obcaecati quaerat! Nihil, accusamus
+        soluta exercitationem possimus obcaecati saepe consequatur rem, tempora
+        minus porro magni animi laudantium natus eum, repellendus unde sit sed
+        reiciendis cum perspiciatis amet. A inventore ipsum est alias fugit
+        distinctio officia dolore quidem repellat, eligendi omnis reprehenderit
+        vero aspernatur neque ex doloribus corrupti nobis corporis reiciendis
+        nulla. Impedit sunt maiores nobis odit veritatis itaque voluptatibus
+        beatae ullam deleniti assumenda ut est atque fugiat doloremque nulla
+        totam vel accusantium veniam soluta, commodi quo mollitia incidunt,
+        ducimus id. Quo sapiente libero reiciendis recusandae ad ea repellat!
+        Alias, dolorum! Molestias facere animi similique quasi. Eius pariatur
+        tempore recusandae sed minima repellat consectetur voluptatibus quaerat
+        deleniti saepe, consequuntur doloribus alias officia, quidem, fugiat
+        facere optio temporibus eligendi fuga rem laboriosam. Quam laborum,
+        laboriosam eius dignissimos at voluptatibus pariatur quos laudantium
+        accusantium rem exercitationem, voluptatum eveniet illum sit quis
+        officia quasi sapiente reiciendis assumenda. Voluptates dicta tenetur
+        quidem, doloremque ut soluta impedit dignissimos autem provident, itaque
+        facere harum. Nesciunt eius animi voluptatum ullam architecto quasi sunt
+        incidunt iusto, maiores non, vel iste nisi minus ipsum exercitationem
+        dignissimos itaque sequi blanditiis! Hic repudiandae dolores maxime
+        laudantium autem libero officia eaque modi quas voluptatum ea eligendi
+        quam aut assumenda incidunt impedit fugiat, molestias, vero cupiditate.
+        Eum, itaque eaque. Ex quasi, illo voluptatibus ab esse nobis quisquam
+        dolorem eius facere atque dolores similique provident, vel quibusdam,
+        nisi officia aut placeat tempora veniam nihil? At, quas. Earum optio
+        reiciendis officia adipisci dignissimos eius explicabo fuga, aut illum
+        recusandae nemo delectus, voluptate temporibus quam quo odio, id soluta
+        et at? Similique, expedita in doloremque ratione quos exercitationem
+        quia facere quam itaque consequuntur laudantium pariatur sequi deleniti
+        fuga neque quasi qui reiciendis dolores necessitatibus ducimus? Debitis
+        numquam recusandae et impedit consequatur quo ratione est illum! Impedit
+        ipsam rerum saepe ratione corporis explicabo, qui itaque dolore hic
+        fugiat earum atque quibusdam at cum omnis non veniam.
+      </div>
+    </div>
+
+    <div class="flex my-10 gap-6">
+      <div
+        class="border-4 border-red-500 border-dashed bg-indigo-500 bg-clip-border p-30"
+      >
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores
+        architecto voluptatibus dolores cumque doloremque eos odio deserunt,
+        temporibus, iusto harum iste, perspiciatis in suscipit molestias.
+        Adipisci deserunt doloribus molestiae accusamus nemo officiis quam harum
+        sint, ullam cupiditate non quia fugiat voluptatibus totam assumenda
+        expedita. Incidunt aliquam harum illum alias hic.
+      </div>
+      <div
+        class="border-4 border-red-500 bg-indigo-500 border-dashed bg-clip-padding p-30"
+      >
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum, at
+        velit minima dolor aspernatur ipsam fugiat recusandae ab quo dolore
+        natus officiis nobis eum eveniet, voluptates pariatur aliquid odio
+        ratione culpa error beatae vel voluptatibus ea. Quas quam incidunt
+        eveniet hic pariatur deleniti rem blanditiis dolor. Beatae architecto
+        quod laborum.
+      </div>
+      <div class="border-4 border-red-500 bg-indigo-500 bg-clip-content p-30">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem
+        aliquid quisquam placeat molestias laborum, sit ex dicta, quam ducimus,
+        sequi impedit. Error provident doloribus soluta nesciunt, ab eaque,
+        dolor rem facere natus explicabo in nisi animi iusto dicta sequi a
+        tempore, cupiditate pariatur. Odit, magnam quos hic quod adipisci aut.
+      </div>
+    </div>
+    <div
+      class="h-[80vh] w-[80vh] rounded-[50%] bg-conic-10 from-white via-stone-500 to-zinc-900 to-75%"
+    ></div>
+
+    <div class="m-50 space-x-10">
+      <button
+        class="transition-all ring-1 ring-cyan-500/50 shadow-lg shadow-cyan-500/50 p-2 px-6 rounded-full inset-shadow-cyan-500/50 hover:inset-shadow-sm"
+      >
+        Subscribe
+      </button>
+      <button
+        class="transition-all ring-1 ring-blue-500/50 shadow-lg shadow-blue-500/50 p-2 px-6 rounded-full inset-shadow-blue-500/50 hover:inset-shadow-sm"
+      >
+        Subscribe
+      </button>
+      <button
+        class="transition-all ring-1 ring-indigo-500/50 shadow-lg shadow-indigo-500/50 p-2 px-6 rounded-full inset-shadow-indigo-500/50 hover:inset-shadow-sm"
+      >
+        Subscribe
+      </button>
+    </div>
+
+    <div class="isolate flex justify-center -space-x-14">
+      <div class="w-64 h-64 rounded-full bg-blue-500 mix-blend-overlay"></div>
+      <div class="w-64 h-64 rounded-full bg-pink-500 mix-blend-overlay"></div>
+    </div>
+
+    <table class="table-fixed w-full">
+      <thead>
+        <tr>
+          <th>Song</th>
+          <th>Artist</th>
+          <th>Year</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>The Sliding Mr. Bones (Next Stop, Pottersville)</td>
+          <td>Malcolm Lockyer</td>
+          <td>1961</td>
+        </tr>
+        <tr>
+          <td>Witchy Woman</td>
+          <td>The Eagles</td>
+          <td>1972</td>
+        </tr>
+        <tr>
+          <td>Shining Star</td>
+          <td>Earth, Wind, and Fire</td>
+          <td>1975</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p
+      class="bg-linear-to-r from-pink-500 to-violet-500 bg-clip-text text-5xl font-extrabold text-transparent ..."
+    >
+      Hello world
+    </p>
+  </body>
+</html>
