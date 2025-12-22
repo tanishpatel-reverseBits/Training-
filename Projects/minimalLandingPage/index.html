@@ -4,6 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Minimal Landing Page</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <!-- 1. Theme tokens -->
     <link rel="stylesheet" href="theme.css" />
 
@@ -119,9 +126,13 @@
       };
     </script>
   </head>
-  <body>
+  <body class="overflow-x-hidden">
     <main>
-      <section id="hero" class="px-28 bg-neutral-silver">
+      <section
+        id="hero"
+        class="px-6 sm:px-10 md:px-20 lg:px-24 xl:px-28 bg-neutral-silver"
+      >
+        <!-- Navbar -->
         <nav class="flex items-center justify-between py-5">
           <div id="logo" class="flex items-center gap-2">
             <img src="./assets/logo.svg" alt="Logo" /><span
@@ -129,7 +140,7 @@
               >Nexcent</span
             >
           </div>
-          <div id="nav-links" class="space-x-7">
+          <div id="nav-links" class="space-x-7 lg:block hidden">
             <a href="" class="capitalize font-medium">home</a>
             <a href="" class="capitalize font-medium">service</a>
             <a href="" class="capitalize font-medium">feature</a>
@@ -138,13 +149,57 @@
             <a href="" class="font-medium uppercase">faq</a>
           </div>
           <div id="nav-btn" class="space-x-4">
-            <button class="text-primaryShade-300 font-medium">Login</button>
-            <button class="btn">Sign up</button>
+            <button
+              class="hidden lg:inline-block text-primaryShade-300 font-medium"
+            >
+              Login
+            </button>
+            <button class="hidden lg:inline-block btn">Sign up</button>
+            <button class="lg:hidden" id="openSidebar">
+              <i class="fa-solid fa-bars"></i>
+            </button>
           </div>
         </nav>
-        <div class="flex items-center justify-between px-4 py-28">
-          <div class="space-y-6 max-w-[700px] w-full">
-            <h1 class="text-h1 font-medium text-neutral-dark">
+
+        <!-- Sidebar Overlay -->
+        <div
+          id="sidebarOverlay"
+          class="fixed inset-0 bg-black/40 z-40 hidden lg:hidden"
+        ></div>
+
+        <!-- Mobile Sidebar -->
+        <aside
+          class="fixed inset-y-0 right-0 z-50 w-72 bg-neutral-white shadow-4 transform translate-x-full transition-transform duration-300 lg:hidden"
+          id="mobileSidebar"
+        >
+          <div class="flex items-center justify-between px-6 py-5 border-b">
+            <span class="text-h4 font-semibold">Menu</span>
+            <button id="closeSidebar">
+              <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+          </div>
+
+          <nav class="flex flex-col gap-5 px-6 py-6">
+            <a class="font-medium capitalize">home</a>
+            <a class="font-medium capitalize">service</a>
+            <a class="font-medium capitalize">feature</a>
+            <a class="font-medium capitalize">product</a>
+            <a class="font-medium capitalize">testimonial</a>
+            <a class="font-medium uppercase">faq</a>
+          </nav>
+
+          <div class="mt-auto px-6 py-6 border-t space-y-4">
+            <button class="w-full text-primaryShade-300 font-medium">
+              Login
+            </button>
+            <button class="btn w-full">Sign up</button>
+          </div>
+        </aside>
+
+        <!-- Hero Section -->
+        <div class="flex items-center justify-between gap-20 lg:gap-40 py-28">
+          <div class="space-y-6">
+            <h1 class="text-h2 lg:text-h1 font-medium text-neutral-dark">
               Lessons and insights
               <span class="text-primaryShade-100">from 8 years</span>
             </h1>
@@ -154,7 +209,7 @@
             </p>
             <button class="btn">Register</button>
           </div>
-          <div class="max-w-[500px]">
+          <div class="max-w-[350px] xl:max-w-[450px]">
             <img
               src="./assets/hero-image.png"
               alt="Hero Image"
@@ -164,5 +219,7 @@
         </div>
       </section>
     </main>
+
+    <script src="script.js"></script>
   </body>
 </html>
