@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Minimal Landing Page</title>
+    <!-- 1. Theme tokens -->
+    <link rel="stylesheet" href="theme.css" />
+
+    <!-- 2. Tailwind CDN config -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            /* =========================
+           Colors
+        ========================== */
+            colors: {
+              primary: "var(--primary)",
+              secondary: "var(--secondary)",
+              info: "var(--info)",
+
+              success: "var(--success)",
+              warning: "var(--warning)",
+              error: "var(--error)",
+
+              neutral: {
+                black: "var(--neutral-black)",
+                dark: "var(--neutral-dark)",
+                grey: "var(--neutral-grey)",
+                light: "var(--neutral-light)",
+                blue: "var(--neutral-blue)",
+                silver: "var(--neutral-silver)",
+                white: "var(--neutral-white)",
+              },
+
+              primaryShade: {
+                100: "var(--primary-100)",
+                200: "var(--primary-200)",
+                300: "var(--primary-300)",
+                400: "var(--primary-400)",
+                500: "var(--primary-500)",
+              },
+
+              primaryTint: {
+                100: "var(--primary-tint-100)",
+                200: "var(--primary-tint-200)",
+                300: "var(--primary-tint-300)",
+                400: "var(--primary-tint-400)",
+                500: "var(--primary-tint-500)",
+              },
+            },
+
+            /* =========================
+           Typography
+        ========================== */
+            fontFamily: {
+              sans: "var(--font-sans)",
+            },
+
+            fontWeight: {
+              regular: "var(--font-regular)",
+              medium: "var(--font-medium)",
+              semibold: "var(--font-semibold)",
+              bold: "var(--font-bold)",
+            },
+
+            fontSize: {
+              h1: [
+                "var(--heading-1-size)",
+                { lineHeight: "var(--heading-1-line-height)" },
+              ],
+              h2: [
+                "var(--heading-2-size)",
+                { lineHeight: "var(--heading-2-line-height)" },
+              ],
+              h3: [
+                "var(--heading-3-size)",
+                { lineHeight: "var(--heading-3-line-height)" },
+              ],
+              h4: [
+                "var(--heading-4-size)",
+                { lineHeight: "var(--heading-4-line-height)" },
+              ],
+
+              body1: [
+                "var(--body-1-size)",
+                { lineHeight: "var(--body-1-line-height)" },
+              ],
+              body2: [
+                "var(--body-2-size)",
+                { lineHeight: "var(--body-2-line-height)" },
+              ],
+              body3: [
+                "var(--body-3-size)",
+                { lineHeight: "var(--body-3-line-height)" },
+              ],
+              body4: [
+                "var(--body-4-size)",
+                { lineHeight: "var(--body-4-line-height)" },
+              ],
+            },
+
+            /* =========================
+           Shadows
+        ========================== */
+            boxShadow: {
+              1: "var(--shadow-1)",
+              2: "var(--shadow-2)",
+              3: "var(--shadow-3)",
+              4: "var(--shadow-4)",
+              5: "var(--shadow-5)",
+            },
+          },
+        },
+      };
+    </script>
+
+    <!-- 3. Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <main>
+      <nav></nav>
+      <section></section>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,97 @@
+:root {
+  /* =========================
+     Neutral
+  ========================== */
+  --neutral-black: #263238;
+  --neutral-dark: #4d4d4d;
+  --neutral-grey: #717171;
+  --neutral-light: #89939e;
+  --neutral-blue: #abbed1;
+  --neutral-silver: #f5f7fa;
+  --neutral-white: #ffffff;
+
+  /* =========================
+     Brand
+  ========================== */
+  --primary: #2ecb7b;
+  --secondary: #263238;
+  --info: #2194f3;
+
+  /* =========================
+     Primary Shades
+  ========================== */
+  --primary-100: #43a046;
+  --primary-200: #388e3b;
+  --primary-300: #237d31;
+  --primary-400: #1b5e1f;
+  --primary-500: #103e13;
+
+  /* =========================
+     Primary Tints
+  ========================== */
+  --primary-tint-100: #66bb69;
+  --primary-tint-200: #81c784;
+  --primary-tint-300: #a5d6a7;
+  --primary-tint-400: #c8e6c9;
+  --primary-tint-500: #e8f5e9;
+
+  /* =========================
+     Action
+  ========================== */
+  --success: #2e7d31;
+  --warning: #fbc02d;
+  --error: #e53835;
+
+  /* =========================
+     Typography – Font Family
+  ========================== */
+  --font-sans: "Inter", system-ui, sans-serif;
+
+  /* =========================
+     Typography – Font Weights
+  ========================== */
+  --font-regular: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 900;
+
+  /* =========================
+     Typography – Headings
+     (SemiBold)
+  ========================== */
+  --heading-1-size: 64px;
+  --heading-1-line-height: 76px;
+
+  --heading-2-size: 36px;
+  --heading-2-line-height: 44px;
+
+  --heading-3-size: 28px;
+  --heading-3-line-height: 36px;
+
+  --heading-4-size: 20px;
+  --heading-4-line-height: 28px;
+
+  /* =========================
+     Typography – Body
+  ========================== */
+  --body-1-size: 18px;
+  --body-1-line-height: 28px;
+
+  --body-2-size: 16px;
+  --body-2-line-height: 24px;
+
+  --body-3-size: 14px;
+  --body-3-line-height: 20px;
+
+  --body-4-size: 12px;
+  --body-4-line-height: 16px;
+
+  /* =========================
+     Effects – Shadow
+  ========================== */
+  --shadow-1: 0px 2px 2px 0px #abbed199;
+  --shadow-2: 0px 4px 4px 0px #abbed166;
+  --shadow-3: 0px 6px 6px 0px #abbed14d;
+  --shadow-4: 0px 8px 8px 0px #abbed166;
+  --shadow-5: 0px 16px 16px 0px #abbed14d;
+}
