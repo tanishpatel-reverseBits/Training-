@@ -45,7 +45,8 @@
   /* =========================
      Typography – Font Family
   ========================== */
-  --font-sans: "Inter", system-ui, sans-serif;
+  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif;
 
   /* =========================
      Typography – Font Weights
@@ -94,4 +95,15 @@
   --shadow-3: 0px 6px 6px 0px #abbed14d;
   --shadow-4: 0px 8px 8px 0px #abbed166;
   --shadow-5: 0px 16px 16px 0px #abbed14d;
+}
+
+body {
+  font-family: var(--font-sans);
+}
+
+.btn {
+  background-color: var(--primary-100);
+  padding: 0.6rem 1.8rem;
+  border-radius: 5px;
+  color: white;
 }

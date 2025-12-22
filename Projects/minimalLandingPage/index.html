@@ -7,7 +7,10 @@
     <!-- 1. Theme tokens -->
     <link rel="stylesheet" href="theme.css" />
 
-    <!-- 2. Tailwind CDN config -->
+    <!-- 2. Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- 3. Tailwind CDN config -->
     <script>
       tailwind.config = {
         theme: {
@@ -115,14 +118,32 @@
         },
       };
     </script>
-
-    <!-- 3. Tailwind CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body>
     <main>
-      <nav></nav>
-      <section></section>
+      <section id="hero" class="px-28 bg-neutral-silver">
+        <nav class="flex items-center justify-between py-5">
+          <div id="logo" class="flex items-center gap-2">
+            <img src="./assets/logo.svg" alt="" /><span
+              class="text-h3 font-semibold"
+              >Nexcent</span
+            >
+          </div>
+          <div id="nav-links" class="space-x-7">
+            <a href="" class="capitalize font-medium">home</a>
+            <a href="" class="capitalize font-medium">service</a>
+            <a href="" class="capitalize font-medium">feature</a>
+            <a href="" class="capitalize font-medium">product</a>
+            <a href="" class="capitalize font-medium">testimonial</a>
+            <a href="" class="font-medium uppercase">faq</a>
+          </div>
+          <div id="nav-btn" class="space-x-4">
+            <button class="text-primaryShade-300 font-medium">Login</button>
+            <button class="btn">Sign up</button>
+          </div>
+        </nav>
+        
+      </section>
     </main>
   </body>
 </html>
