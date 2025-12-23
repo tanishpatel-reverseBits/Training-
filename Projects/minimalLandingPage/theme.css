@@ -54,7 +54,7 @@
   --font-regular: 400;
   --font-medium: 500;
   --font-semibold: 600;
-  --font-bold: 900;
+  --font-bold: 700;
 
   /* =========================
      Typography – Headings
@@ -93,7 +93,7 @@
   --shadow-1: 0px 2px 2px 0px #abbed199;
   --shadow-2: 0px 4px 4px 0px #abbed166;
   --shadow-3: 0px 6px 6px 0px #abbed14d;
-  --shadow-4: 0px 8px 8px 0px #abbed166;
+  --shadow-4: 0px 8px 16px 0px #abbed166;
   --shadow-5: 0px 16px 16px 0px #abbed14d;
 }
 
