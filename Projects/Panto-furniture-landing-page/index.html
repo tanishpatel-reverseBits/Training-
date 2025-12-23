@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pant Furniture Landing Page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Host+Grotesk:ital,wght@0,300..800;1,300..800&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Questrial&family=Saira:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- 1. Theme tokens -->
+    <link rel="stylesheet" href="theme.css" />
+
+    <!-- 2. Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <main>
+      <section
+        id="hero"
+        class="relative w-full min-h-[120vh] md:min-h-[140vh] text-white bg-[url('./assets/hero/hero-image.png')] bg-cover bg-right ms:bg-center bg-no-repeat"
+      >
+        <!-- Overlay content -->
+        <div class="relative z-10 px-6 sm:px-10 lg:px-20">
+          <!-- Navbar -->
+          <nav class="flex items-center justify-between py-6">
+            <h1 class="font-semibold text-2xl">Panto</h1>
+
+            <div class="hidden md:flex space-x-8">
+              <a href="#">Furniture</a>
+              <a href="#">Shop</a>
+              <a href="#">About Us</a>
+              <a href="#">Contact</a>
+            </div>
+
+            <div class="relative">
+              <img src="./assets/hero/cart.svg" alt="Cart Icon" />
+              <span
+                class="absolute -top-2 -right-2 inline-flex h-5 min-w-5 items-center justify-center rounded-full bg-[#E58411] text-xs leading-none"
+              >
+                0
+              </span>
+            </div>
+          </nav>
+
+          <!-- Hero Content -->
+          <div
+            class="mt-20 sm:mt-28 flex flex-col items-center gap-3 sm:gap-6 text-center"
+          >
+            <h1
+              class="font-semibold text-4xl sm:text-5xl lg:text-[80px] leading-tight lg:leading-[1.2] max-w-4xl"
+            >
+              Make Your Interior More Minimalistic & Modern
+            </h1>
+
+            <p class="text-white/70 text-base sm:text-lg lg:text-2xl max-w-xl">
+              Turn your room with panto into a lot more minimalist and modern
+              with ease and speed
+            </p>
+
+            <div class="relative sm:mt-6 w-full max-w-xs">
+              <input
+                type="text"
+                placeholder="Search furniture"
+                class="w-full rounded-full bg-white/15 backdrop-blur-sm py-3 pl-5 pr-12 outline-none placeholder:text-white/70"
+              />
+              <img
+                src="./assets/hero/search.svg"
+                alt="Search Icon"
+                class="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 cursor-pointer"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="chooseUs"
+        class="w-full flex flex-col sm:flex-row gap-16 md:gap-20 lg:gap-32 items-start lg:items-center justify-between px-6 sm:px-10 lg:px-20 py-28"
+      >
+        <div class="min-w-[20%]">
+          <h2 class="font-semibold text-4xl lg:w-[80%]">Why Choosing Us</h2>
+        </div>
+        <div class="grid grid-col-1 sm:grid-cols-2 lg:grid-cols-3 gap-7">
+          <div class="flex flex-col items-start gap-4 lg:max-w-[92%]">
+            <h3 class="text-lg font-semibold">Luxury facilities</h3>
+            <p>
+              The advantage of hiring a workspace with us is that givees you
+              comfortable service and all-around facilities.
+            </p>
+            <a href="" class="flex items-center gap-4"
+              >More Info
+              <img src="./assets/choose-us/arrow.svg" alt="Arrow Icon"
+            /></a>
+          </div>
+          <div class="flex flex-col items-start gap-4 lg:max-w-[92%]">
+            <h3 class="text-lg font-semibold">Affordable Price</h3>
+            <p>
+              You can get a workspace of the highst quality at an affordable
+              price and still enjoy the facilities that are oly here.
+            </p>
+            <a href="" class="flex items-center gap-4"
+              >More Info
+              <img src="./assets/choose-us/arrow.svg" alt="Arrow Icon"
+            /></a>
+          </div>
+          <div
+            class="col-span-1 sm:col-span-2 lg:col-span-1 flex flex-col items-start gap-4 lg:max-w-[92%]"
+          >
+            <h3 class="text-lg font-semibold">Many Choices</h3>
+            <p>
+              We provide many unique work space choices so that you can choose
+              the workspace to your liking.
+            </p>
+            <a href="" class="flex items-center gap-4"
+              >More Info
+              <img src="./assets/choose-us/arrow.svg" alt="Arrow Icon"
+            /></a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
