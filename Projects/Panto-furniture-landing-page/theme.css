@@ -1,3 +1,132 @@
+@font-face {
+  font-family: "Gilroy-Regular";
+  src: url("./assets/font/gilroy/Gilroy-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Gilroy-Medium";
+  src: url("./assets/font/gilroy/Gilroy-Medium.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Gilroy-SemiBold";
+  src: url("./assets/font/gilroy/Gilroy-SemiBold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Gilroy-Bold";
+  src: url("./assets/font/gilroy/Gilroy-Bold.ttf") format("truetype");
+}
+
+:root {
+  /* =========================
+     Brand
+  ========================== */
+  --primary: #e58411;
+  --secondary: #1e1e1e;
+  --primary-100: #f6973f;
+
+  /* =========================
+     Typography – Font Weights
+  ========================== */
+  --family-regular: "Gilroy-Regular", sans-serif;
+  --family-medium: "Gilroy-Medium", sans-serif;
+  --family-semibold: "Gilroy-SemiBold", sans-serif;
+  --family-bold: "Gilroy-Bold", sans-serif;
+
+  /* =========================
+     Typography – Headings
+  ========================== */
+  --h1: clamp(48px, 3rem + 3vw, 80px);
+  --h1-line-height: 104px;
+  --h1-letter-spacing: -0.8px;
+
+  --h2: clamp(28px, 1.75rem + 1.5vw, 42px);
+  --h2-line-height: 50.4px;
+  --h2-letter-spacing: 0px;
+
+  --h3: clamp(20px, 1.25rem + 0.6vw, 24px);
+  --h3-line-height: 50.4px;
+  --h3-letter-spacing: 0px;
+
+  --pheading: clamp(18.5px, 0.9vw + 0.85rem, 21.33px);
+  --pheading-line-height: clamp(22px, 1vw + 1.05rem, 25.6px);
+  --pheading-letter-spacing: 0px;
+
+  /* =========================
+     Typography – Body
+  ========================== */
+  --body1: clamp(18px, 1.125rem + 0.6vw, 24px);
+  --body1-line-height: 38.4px;
+  --body1-letter-spacing: 0px;
+
+  --body2: clamp(15px, 0.95rem + 0.2vw, 16px);
+  --body2-line-height: 29.6px;
+  --body2-letter-spacing: 0px;
+
+  --body3: clamp(16px, 1rem + 0.3vw, 18px);
+  --body3-line-height: 33.3px;
+  --body3-letter-spacing: 0px;
+
+  --body4: clamp(14px, 0.875rem + 0.2vw, 15px);
+  --body4-line-height: 24px;
+  --body4-letter-spacing: 0px;
+
+  --body5: clamp(13px, 0.8rem + 0.15vw, 14px);
+  --body5-line-height: 19.6px;
+  --body5-letter-spacing: 0px;
+
+  --body6: clamp(12px, 0.75rem + 0.1vw, 12px);
+  --body6-line-height: 16.8px;
+  --body6-letter-spacing: 0px;
+
+  /* =========================
+     Typography – Product Label
+  ========================== */
+  --plabel: clamp(15px, 0.45vw + 0.8rem, 16.76px);
+  --plabel-line-height: clamp(17.5px, 0.8vw + 0.9rem, 20.11px);
+  --plabel-letter-spacing: 0px;
+
+  /* =========================
+     Typography – Label
+  ========================== */
+  --label1: clamp(16px, 1rem + 0.3vw, 18px);
+  --label1-line-height: 21.6px;
+  --label1-letter-spacing: 3.15px;
+
+  --label2: clamp(15px, 0.95rem + 0.2vw, 17px);
+  --label2-line-height: 23.8px;
+  --label2-letter-spacing: -0.23px;
+
+  /* =========================
+     Typography – Logo
+  ========================== */
+  --logo: clamp(22px, 1.375rem + 0.5vw, 28px);
+  --logo-line-height: 33.6px;
+  --logo-letter-spacing: 0.28px;
+
+  /* =========================
+     Typography – Navbar
+  ========================== */
+  --nav: clamp(16px, 1rem + 0.3vw, 18px);
+  --nav-line-height: 25.2px;
+  --nav-letter-spacing: 0px;
+
+  /* =========================
+     Typography – Link
+  ========================== */
+  --link2: clamp(13px, 0.8rem + 0.15vw, 14px);
+  --link2-line-height: 25.9px;
+  --link2-letter-spacing: 0px;
+
+  /* =========================
+     Typography – Input
+  ========================== */
+  --input: clamp(16px, 1rem + 0.3vw, 18px);
+  --input-line-height: 27px;
+  --input-letter-spacing: 0px;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -9,5 +138,71 @@ body {
   height: 100%;
 }
 body {
-  font-family: "Questrial", sans-serif;
+  font-family: var(--family-regular);
+}
+
+@media (max-width: 1024px) {
+  :root {
+    --h1-line-height: 96px;
+    --h1-letter-spacing: -0.7px;
+
+    --h2-line-height: 48px;
+    --h3-line-height: 48px;
+
+    --body1-line-height: 36px;
+    --body3-line-height: 31px;
+
+    --label1-letter-spacing: 2.8px;
+    --logo-line-height: 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --h1-line-height: 88px;
+    --h1-letter-spacing: -0.6px;
+
+    --h2-line-height: 45px;
+    --h3-line-height: 45px;
+
+    --body1-line-height: 34px;
+    --body2-line-height: 28px;
+    --body3-line-height: 30px;
+
+    --label1-letter-spacing: 2.4px;
+    --nav-line-height: 23px;
+  }
+}
+
+@media (max-width: 640px) {
+  :root {
+    --h1-line-height: 70px;
+    --h1-letter-spacing: -0.5px;
+
+    --h2-line-height: 42px;
+    --h3-line-height: 42px;
+
+    --body1-line-height: 26px;
+    --body2-line-height: 26px;
+    --body3-line-height: 28px;
+
+    --body4-line-height: 22px;
+    --body5-line-height: 18px;
+
+    --label1-letter-spacing: 2px;
+    --logo-line-height: 30px;
+    --nav-line-height: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --h1-line-height: 62px;
+    --h1-letter-spacing: -0.4px;
+
+    --body1-line-height: 22px;
+    --body2-line-height: 25px;
+
+    --label1-letter-spacing: 1.6px;
+  }
 }

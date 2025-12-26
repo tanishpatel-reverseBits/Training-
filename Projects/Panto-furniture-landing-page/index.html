@@ -22,27 +22,177 @@
 
     <!-- 2. Tailwind CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- 3. Tailwind CDN config -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "var(--primary)",
+              secondary: "var(--secondary)",
+              primary100: "var(--primary-100)",
+            },
+
+            fontFamily: {
+              regular: "var(--family-regular)",
+              medium: "var(--family-medium)",
+              semibold: "var(--family-semibold)",
+              bold: "var(--family-bold)",
+            },
+
+            fontSize: {
+              h1: [
+                "var(--h1)",
+                {
+                  lineHeight: "var(--h1-line-height)",
+                  letterSpacing: "var(--h1-letter-spacing)",
+                },
+              ],
+              h2: [
+                "var(--h2)",
+                {
+                  lineHeight: "var(--h3-line-height)",
+                  letterSpacing: "var(--h2-letter-spacing)",
+                },
+              ],
+              h3: [
+                "var(--h3)",
+                {
+                  lineHeight: "var(--h3-line-height)",
+                  letterSpacing: "var(--h3-letter-spacing)",
+                },
+              ],
+              pheading: [
+                "var(--pheading)",
+                {
+                  lineHeight: "var(--pheading-line-height)",
+                  letterSpacing: "var(--pheading-letter-spacing)",
+                },
+              ],
+
+              body1: [
+                "var(--body1)",
+                {
+                  lineHeight: "var(--body1-line-height)",
+                  letterSpacing: "var(--body1-letter-spacing)",
+                },
+              ],
+              body2: [
+                "var(--body2)",
+                {
+                  lineHeight: "var(--body2-line-height)",
+                  letterSpacing: "var(--body2-letter-spacing)",
+                },
+              ],
+              body3: [
+                "var(--body3)",
+                {
+                  lineHeight: "var(--body3-line-height)",
+                  letterSpacing: "var(--body3-letter-spacing)",
+                },
+              ],
+              body4: [
+                "var(--body4)",
+                {
+                  lineHeight: "var(--body4-line-height)",
+                  letterSpacing: "var(--body4-letter-spacing)",
+                },
+              ],
+              body5: [
+                "var(--body5)",
+                {
+                  lineHeight: "var(--body5-line-height)",
+                  letterSpacing: "var(--body5-letter-spacing)",
+                },
+              ],
+              body6: [
+                "var(--body6)",
+                {
+                  lineHeight: "var(--body6-line-height)",
+                  letterSpacing: "var(--body6-letter-spacing)",
+                },
+              ],
+
+              plabel: [
+                "var(--plabel)",
+                {
+                  lineHeight: "var(--plabel-line-height)",
+                  letterSpacing: "var(--plabel-letter-spacing)",
+                },
+              ],
+              label1: [
+                "var(--label1)",
+                {
+                  lineHeight: "var(--label1-line-height)",
+                  letterSpacing: "var(--label1-letter-spacing)",
+                },
+              ],
+              label2: [
+                "var(--label2)",
+                {
+                  lineHeight: "var(--label2-line-height)",
+                  letterSpacing: "var(--label2-letter-spacing)",
+                },
+              ],
+
+              logo: [
+                "var(--logo)",
+                {
+                  lineHeight: "var(--logo-line-height)",
+                  letterSpacing: "var(--logo-letter-spacing)",
+                },
+              ],
+
+              nav: [
+                "var(--nav)",
+                {
+                  lineHeight: "var(--nav-line-height)",
+                  letterSpacing: "var(--nav-letter-spacing)",
+                },
+              ],
+
+              link2: [
+                "var(--link2)",
+                {
+                  lineHeight: "var(--link2-line-height)",
+                  letterSpacing: "var(--link2-letter-spacing)",
+                },
+              ],
+
+              input: [
+                "var(--input)",
+                {
+                  lineHeight: "var(--input-line-height)",
+                  letterSpacing: "var(--input-letter-spacing)",
+                },
+              ],
+            },
+          },
+        },
+      };
+    </script>
   </head>
   <body>
-    <main>
+    <main class="text-secondary">
       <section
         id="hero"
         class="relative w-full min-h-[120vh] md:min-h-[140vh] text-white bg-[url('./assets/hero/hero-image.png')] bg-cover bg-right ms:bg-center bg-no-repeat"
       >
         <!-- Overlay content -->
-        <div class="relative z-10 px-6 sm:px-10 lg:px-20">
+        <div class="relative z-10 px-4 sm:px-6 xl:px-0 max-w-7xl mx-auto">
           <!-- Navbar -->
           <nav class="flex items-center justify-between py-6">
-            <h1 class="font-semibold text-2xl">Panto</h1>
+            <h1 class="font-bold text-logo" id="logo">Panto</h1>
 
             <div class="hidden md:flex space-x-8">
-              <a href="#">Furniture</a>
-              <a href="#">Shop</a>
-              <a href="#">About Us</a>
-              <a href="#">Contact</a>
+              <a href="#" class="nav-links font-medium text-nav">Furniture</a>
+              <a href="#" class="nav-links font-medium text-nav">Shop</a>
+              <a href="#" class="nav-links font-medium text-nav">About Us</a>
+              <a href="#" class="nav-links font-medium text-nav">Contact</a>
             </div>
 
-            <div class="relative">
+            <div class="relative" id="cart">
               <img src="./assets/hero/cart.svg" alt="Cart Icon" />
               <span
                 class="absolute -top-2 -right-2 inline-flex h-5 min-w-5 items-center justify-center rounded-full bg-[#E58411] text-xs leading-none"
@@ -56,28 +206,29 @@
           <div
             class="mt-20 sm:mt-28 flex flex-col items-center gap-3 sm:gap-6 text-center"
           >
-            <h1
-              class="font-semibold text-4xl sm:text-5xl lg:text-[80px] leading-tight lg:leading-[1.2] max-w-4xl"
-            >
-              Make Your Interior More Minimalistic & Modern
+            <h1 id="hero-title-wrapper" class="text-h1 font-bold leading-none">
+              Make Your Interior More <br />
+              Minimalistic & Modern
             </h1>
 
-            <p class="text-white/70 text-base sm:text-lg lg:text-2xl max-w-xl">
-              Turn your room with panto into a lot more minimalist and modern
-              with ease and speed
+            <p id="hero-desc-wrapper" class="text-white/70 text-body1">
+              Turn your room with panto into a lot more minimalist <br />
+              and modern with ease and speed
             </p>
 
-            <div class="relative sm:mt-6 w-full max-w-xs">
-              <input
-                type="text"
-                placeholder="Search furniture"
-                class="w-full rounded-full bg-white/15 backdrop-blur-sm py-3 pl-5 pr-12 outline-none placeholder:text-white/70"
-              />
-              <img
-                src="./assets/hero/search.svg"
-                alt="Search Icon"
-                class="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 cursor-pointer"
-              />
+            <div class="overflow-hidden">
+              <div class="relative sm:mt-6 w-full max-w-xs" id="input">
+                <input
+                  type="text"
+                  placeholder="Search furniture"
+                  class="w-full border rounded-full bg-white/15 backdrop-blur-sm py-3 pl-5 pr-12 outline-none placeholder:text-input placeholder:text-white/70"
+                />
+                <img
+                  src="./assets/hero/search.svg"
+                  alt="Search Icon"
+                  class="absolute right-[6px] top-1/2 -translate-y-1/2 w-9 h-9 cursor-pointer"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -85,51 +236,715 @@
 
       <section
         id="chooseUs"
-        class="w-full flex flex-col sm:flex-row gap-16 md:gap-20 lg:gap-32 items-start lg:items-center justify-between px-6 sm:px-10 lg:px-20 py-28"
+        class="w-full flex flex-col sm:flex-row gap-16 md:gap-20 lg:gap-44 items-start lg:items-center justify-between px-4 sm:px-6 xl:px-0 max-w-7xl mx-auto py-16 md:py-28"
       >
-        <div class="min-w-[20%]">
-          <h2 class="font-semibold text-4xl lg:w-[80%]">Why Choosing Us</h2>
+        <div class="choose">
+          <h2 class="font-bold text-h2">Why Choosing Us</h2>
         </div>
         <div class="grid grid-col-1 sm:grid-cols-2 lg:grid-cols-3 gap-7">
-          <div class="flex flex-col items-start gap-4 lg:max-w-[92%]">
-            <h3 class="text-lg font-semibold">Luxury facilities</h3>
-            <p>
+          <div class="choose flex flex-col items-start gap-4">
+            <h3 class="text-h3 font-bold">Luxury facilities</h3>
+            <p class="text-body2">
               The advantage of hiring a workspace with us is that givees you
               comfortable service and all-around facilities.
             </p>
-            <a href="" class="flex items-center gap-4"
+            <a href="" class="flex items-center gap-4 text-link2 text-primary"
               >More Info
-              <img src="./assets/choose-us/arrow.svg" alt="Arrow Icon"
+              <img
+                src="./assets/choose-us/arrow.svg"
+                alt="Arrow Icon"
+                class="h-5"
             /></a>
           </div>
-          <div class="flex flex-col items-start gap-4 lg:max-w-[92%]">
-            <h3 class="text-lg font-semibold">Affordable Price</h3>
-            <p>
+          <div class="choose flex flex-col items-start gap-4">
+            <h3 class="text-h3 font-bold">Affordable Price</h3>
+            <p class="text-body2">
               You can get a workspace of the highst quality at an affordable
               price and still enjoy the facilities that are oly here.
             </p>
-            <a href="" class="flex items-center gap-4"
+            <a href="" class="flex items-center gap-4 text-link2 text-primary"
               >More Info
-              <img src="./assets/choose-us/arrow.svg" alt="Arrow Icon"
+              <img
+                src="./assets/choose-us/arrow.svg"
+                alt="Arrow Icon"
+                class="h-5"
             /></a>
           </div>
           <div
-            class="col-span-1 sm:col-span-2 lg:col-span-1 flex flex-col items-start gap-4 lg:max-w-[92%]"
+            class="choose col-span-1 sm:col-span-2 lg:col-span-1 flex flex-col items-start gap-4"
           >
-            <h3 class="text-lg font-semibold">Many Choices</h3>
-            <p>
+            <h3 class="text-h3 font-bold">Many Choices</h3>
+            <p class="text-body2">
               We provide many unique work space choices so that you can choose
               the workspace to your liking.
             </p>
-            <a href="" class="flex items-center gap-4"
+            <a href="" class="flex items-center gap-4 text-link2 text-primary"
               >More Info
-              <img src="./assets/choose-us/arrow.svg" alt="Arrow Icon"
+              <img
+                src="./assets/choose-us/arrow.svg"
+                alt="Arrow Icon"
+                class="h-5"
             /></a>
           </div>
         </div>
       </section>
+
+      <section id="products" class="w-full bg-[#F7F7F7]">
+        <div
+          class="max-w-7xl mx-auto px-4 sm:px-6 xl:px-0 py-14 flex flex-col items-center justify-center gap-20"
+        >
+          <div class="flex flex-col items-center justify-center gap-8">
+            <h2 class="font-bold text-h2">Best Selling Product</h2>
+            <div
+              class="bg-[#EEEEEE] flex items-center justify-center gap-2 p-[5px] rounded-full"
+            >
+              <div class="bg-white rounded-full px-3 py-1">Chair</div>
+              <div class="px-3 py-1">Beds</div>
+              <div class="px-3 py-1">Sofa</div>
+              <div class="px-3 py-1">Lamp</div>
+            </div>
+          </div>
+          <div
+            class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-10 items-stretch w-full"
+          >
+            <div class="product rounded-2xl overflow-hidden h-full">
+              <div class="bg-[#FAFAFA] h-64 flex items-center justify-center">
+                <img
+                  src="./assets/products/chair-1.png"
+                  alt="Chair-1 Image"
+                  class="h-full object-contain"
+                />
+              </div>
+              <div class="bg-white flex flex-col gap-9 px-5 py-7">
+                <div class="space-y-1">
+                  <p class="text-plabel text-[#8D8D8D]">Chair</p>
+                  <h3 class="text-pheading font-bold">Sakarias Armchair</h3>
+                  <div class="flex items-center gap-2">
+                    <img src="./assets/products/star.svg" alt="Star Icon" />
+                    <img src="./assets/products/star.svg" alt="Star Icon" />
+                    <img src="./assets/products/star.svg" alt="Star Icon" />
+                    <img src="./assets/products/star.svg" alt="Star Icon" />
+                    <img src="./assets/products/star.svg" alt="Star Icon" />
+                  </div>
+                </div>
+                <div class="flex items-center justify-between">
+                  <h3 class="text-pheading font-bold">$392</h3>
+                  <div class="bg-[#0D1B39] rounded-full p-2">
+                    <img src="./assets/products/plus.svg" alt="Plus Icon" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="product rounded-2xl overflow-hidden h-full">
+              <div class="bg-[#FAFAFA] h-64 flex items-center justify-center">
+                <img
+                  src="./assets/products/chair-2.png"
+                  alt="Chair-2 Image"
+                  class="h-full object-contain"
+                />
+              </div>
+              <div class="bg-white flex flex-col gap-9 px-5 py-7">
+                <div class="space-y-1">
+                  <p class="text-plabel text-[#8D8D8D]">Chair</p>
+                  <h3 class="text-pheading font-bold">Sakarias Armchair</h3>
+                  <div class="flex items-center gap-2">
+                    <img src="./assets/products/star.svg" alt="Star Icon" />
+                    <img src="./assets/products/star.svg" alt="Star Icon" />
+                    <img src="./assets/products/star.svg" alt="Star Icon" />
+                    <img src="./assets/products/star.svg" alt="Star Icon" />
+                    <img src="./assets/products/star.svg" alt="Star Icon" />
+                  </div>
+                </div>
+                <div class="flex items-center justify-between">
+                  <h3 class="text-pheading font-bold">$392</h3>
+                  <div class="bg-[#0D1B39] rounded-full p-2">
+                    <img src="./assets/products/plus.svg" alt="Plus Icon" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="product rounded-2xl overflow-hidden h-full">
+              <div class="bg-[#FAFAFA] h-64 flex items-center justify-center">
+                <img
+                  src="./assets/products/chair-3.png"
+                  alt="Chair-3 Image"
+                  class="h-full object-contain"
+                />
+              </div>
+              <div class="bg-white flex flex-col gap-9 px-5 py-7">
+                <div class="space-y-1">
+                  <p class="text-plabel text-[#8D8D8D]">Chair</p>
+                  <h3 class="text-pheading font-bold">Sakarias Armchair</h3>
+                  <div class="flex items-center gap-2">
+                    <img src="./assets/products/star.svg" alt="Star Icon" />
+                    <img src="./assets/products/star.svg" alt="Star Icon" />
+                    <img src="./assets/products/star.svg" alt="Star Icon" />
+                    <img src="./assets/products/star.svg" alt="Star Icon" />
+                    <img src="./assets/products/star.svg" alt="Star Icon" />
+                  </div>
+                </div>
+                <div class="flex items-center justify-between">
+                  <h3 class="text-pheading font-bold">$392</h3>
+                  <div class="bg-[#0D1B39] rounded-full p-2">
+                    <img src="./assets/products/plus.svg" alt="Plus Icon" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="product rounded-2xl overflow-hidden h-full">
+              <div class="bg-[#FAFAFA] h-64 flex items-center justify-center">
+                <img
+                  src="./assets/products/chair-4.png"
+                  alt="Chair-4 Image"
+                  class="h-full object-contain"
+                />
+              </div>
+              <div class="bg-white flex flex-col gap-9 px-5 py-7">
+                <div class="space-y-1">
+                  <p class="text-plabel text-[#8D8D8D]">Chair</p>
+                  <h3 class="text-pheading font-bold">Sakarias Armchair</h3>
+                  <div class="flex items-center gap-2">
+                    <img src="./assets/products/star.svg" alt="Star Icon" />
+                    <img src="./assets/products/star.svg" alt="Star Icon" />
+                    <img src="./assets/products/star.svg" alt="Star Icon" />
+                    <img src="./assets/products/star.svg" alt="Star Icon" />
+                    <img src="./assets/products/star.svg" alt="Star Icon" />
+                  </div>
+                </div>
+                <div class="flex items-center justify-between">
+                  <h3 class="text-pheading font-bold">$392</h3>
+                  <div class="bg-[#0D1B39] rounded-full p-2">
+                    <img src="./assets/products/plus.svg" alt="Plus Icon" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="product rounded-2xl overflow-hidden h-full">
+              <div class="bg-[#FAFAFA] h-64 flex items-center justify-center">
+                <img
+                  src="./assets/products/chair-3.png"
+                  alt="Chair-3 Image"
+                  class="h-full object-contain"
+                />
+              </div>
+              <div class="bg-white flex flex-col gap-9 px-5 py-7">
+                <div class="space-y-1">
+                  <p class="text-plabel text-[#8D8D8D]">Chair</p>
+                  <h3 class="text-pheading font-bold">Sakarias Armchair</h3>
+                  <div class="flex items-center gap-2">
+                    <img src="./assets/products/star.svg" alt="Star Icon" />
+                    <img src="./assets/products/star.svg" alt="Star Icon" />
+                    <img src="./assets/products/star.svg" alt="Star Icon" />
+                    <img src="./assets/products/star.svg" alt="Star Icon" />
+                    <img src="./assets/products/star.svg" alt="Star Icon" />
+                  </div>
+                </div>
+                <div class="flex items-center justify-between">
+                  <h3 class="text-pheading font-bold">$392</h3>
+                  <div class="bg-[#0D1B39] rounded-full p-2">
+                    <img src="./assets/products/plus.svg" alt="Plus Icon" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="product rounded-2xl overflow-hidden h-full">
+              <div class="bg-[#FAFAFA] h-64 flex items-center justify-center">
+                <img
+                  src="./assets/products/chair-2.png"
+                  alt="Chair-2 Image"
+                  class="h-full object-contain"
+                />
+              </div>
+              <div class="bg-white flex flex-col gap-9 px-5 py-7">
+                <div class="space-y-1">
+                  <p class="text-plabel text-[#8D8D8D]">Chair</p>
+                  <h3 class="text-pheading font-bold">Sakarias Armchair</h3>
+                  <div class="flex items-center gap-2">
+                    <img src="./assets/products/star.svg" alt="Star Icon" />
+                    <img src="./assets/products/star.svg" alt="Star Icon" />
+                    <img src="./assets/products/star.svg" alt="Star Icon" />
+                    <img src="./assets/products/star.svg" alt="Star Icon" />
+                    <img src="./assets/products/star.svg" alt="Star Icon" />
+                  </div>
+                </div>
+                <div class="flex items-center justify-between">
+                  <h3 class="text-pheading font-bold">$392</h3>
+                  <div class="bg-[#0D1B39] rounded-full p-2">
+                    <img src="./assets/products/plus.svg" alt="Plus Icon" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="product rounded-2xl overflow-hidden h-full">
+              <div class="bg-[#FAFAFA] h-64 flex items-center justify-center">
+                <img
+                  src="./assets/products/chair-4.png"
+                  alt="Chair-4 Image"
+                  class="h-full object-contain"
+                />
+              </div>
+              <div class="bg-white flex flex-col gap-9 px-5 py-7">
+                <div class="space-y-1">
+                  <p class="text-plabel text-[#8D8D8D]">Chair</p>
+                  <h3 class="text-pheading font-bold">Sakarias Armchair</h3>
+                  <div class="flex items-center gap-2">
+                    <img src="./assets/products/star.svg" alt="Star Icon" />
+                    <img src="./assets/products/star.svg" alt="Star Icon" />
+                    <img src="./assets/products/star.svg" alt="Star Icon" />
+                    <img src="./assets/products/star.svg" alt="Star Icon" />
+                    <img src="./assets/products/star.svg" alt="Star Icon" />
+                  </div>
+                </div>
+                <div class="flex items-center justify-between">
+                  <h3 class="text-pheading font-bold">$392</h3>
+                  <div class="bg-[#0D1B39] rounded-full p-2">
+                    <img src="./assets/products/plus.svg" alt="Plus Icon" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="product rounded-2xl overflow-hidden h-full">
+              <div class="bg-[#FAFAFA] h-64 flex items-center justify-center">
+                <img
+                  src="./assets/products/chair-1.png"
+                  alt="Chair-1 Image"
+                  class="h-full object-contain"
+                />
+              </div>
+              <div class="bg-white flex flex-col gap-9 px-5 py-7">
+                <div class="space-y-1">
+                  <p class="text-plabel text-[#8D8D8D]">Chair</p>
+                  <h3 class="text-pheading font-bold">Sakarias Armchair</h3>
+                  <div class="flex items-center gap-2">
+                    <img src="./assets/products/star.svg" alt="Star Icon" />
+                    <img src="./assets/products/star.svg" alt="Star Icon" />
+                    <img src="./assets/products/star.svg" alt="Star Icon" />
+                    <img src="./assets/products/star.svg" alt="Star Icon" />
+                    <img src="./assets/products/star.svg" alt="Star Icon" />
+                  </div>
+                </div>
+                <div class="flex items-center justify-between">
+                  <h3 class="text-pheading font-bold">$392</h3>
+                  <div class="bg-[#0D1B39] rounded-full p-2">
+                    <img src="./assets/products/plus.svg" alt="Plus Icon" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <a href="" class="flex items-center gap-4 text-link2 text-primary"
+            >View All
+            <img
+              src="./assets/choose-us/arrow.svg"
+              alt="Arrow Icon"
+              class="h-5"
+          /></a>
+        </div>
+      </section>
+
+      <section
+        id="experiences"
+        class="px-4 sm:px-6 xl:px-0 py-16 md:py-28 max-w-7xl mx-auto"
+      >
+        <div
+          class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-40 items-center"
+        >
+          <div class="relative max-w-xl">
+            <div
+              class="-z-1 absolute -top-14 -left-44 w-full h-full rounded-2xl bg-[#F7F7F7] hidden md:block"
+            ></div>
+            <div
+              class="z-0 absolute top-16 left-14 w-full h-[70%] rounded-2xl bg-[#F7F7F7] hidden md:block"
+            ></div>
+            <div class="overflow-hidden rounded-2xl">
+              <img
+                src="./assets/experience/exp-image.png"
+                alt="Experience"
+                class="eImage z-10 relative shadow-xl w-full object-cover"
+              />
+            </div>
+            <div
+              class="z-1 absolute top-6 left-4 w-[90%] h-full rounded-2xl overflow-hidden opacity-50 blur-lg"
+            >
+              <img
+                src="./assets/experience/exp-image.png"
+                alt="Experience"
+                class="eShadow w-full h-full object-cover"
+              />
+            </div>
+          </div>
+
+          <div class="max-w-lg space-y-5">
+            <p class="uppercase text-primary text-label1 font-semibold">
+              Experiences
+            </p>
+
+            <h2 class="text-h2 font-bold">
+              We Provide You The<br />
+              Best Experience
+            </h2>
+
+            <p class="text-body3">
+              You don’t have to worry about the result because all of these
+              interiors are made by people who are professionals in their fields
+              with an elegant and luxurious style and with premium quality
+              materials.
+            </p>
+
+            <a href="" class="flex items-center gap-4 text-link2 text-primary"
+              >More Info
+              <img
+                src="./assets/choose-us/arrow.svg"
+                alt="Arrow Icon"
+                class="h-5"
+            /></a>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="materials"
+        class="px-4 sm:px-6 xl:px-0 py-16 md:py-28 max-w-7xl mx-auto"
+      >
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div class="space-y-5">
+            <p class="uppercase text-primary text-label1 font-semibold">
+              Materials
+            </p>
+
+            <h2 class="font-bold text-h2">
+              Very Serious<br />
+              Materials For Making <br />
+              Furniture
+            </h2>
+
+            <p class="text-body3">
+              Because panto was very serious about designing furniture for our
+              environment, using a very expensive and famous capital but at a
+              relatively low price.
+            </p>
+
+            <a href="" class="flex items-center gap-4 text-link2 text-primary"
+              >More Info
+              <img
+                src="./assets/choose-us/arrow.svg"
+                alt="Arrow Icon"
+                class="h-5"
+            /></a>
+          </div>
+
+          <div class="grid grid-cols-3 gap-2 sm:gap-4 md:gap-6">
+            <div class="flex flex-col gap-2 sm:gap-4 md:gap-6">
+              <div class="overflow-hidden">
+                <img
+                  src="./assets/material/material-1.png"
+                  class="mImage1 rounded-2xl shadow-xl"
+                  alt="Material-1 Image"
+                />
+              </div>
+              <div class="overflow-hidden">
+                <img
+                  src="./assets/material/material-2.png"
+                  class="mImage1 rounded-2xl shadow-xl"
+                  alt="Material-2 Image"
+                />
+              </div>
+            </div>
+
+            <div class="col-span-2 flex items-end relative">
+              <div class="overflow-hidden">
+                <img
+                  src="./assets/material/material-3.png"
+                  class="mImage2 rounded-2xl shadow-xl object-cover z-2"
+                  alt="Material-3 Image"
+                />
+              </div>
+              <div
+                class="mShadow z-[-1] absolute w-[90%] left-4 translate-y-6 rounded-2xl overflow-hidden opacity-50 blur-lg"
+              >
+                <img
+                  src="./assets/material/material-3.png"
+                  class="rounded-2xl shadow-xl object-cover"
+                  alt="Material-3 Image"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="testimonials"
+        class="flex flex-col items-center justify-center gap-16 px-4 sm:px-6 xl:px-0 py-16 md:py-28 max-w-7xl mx-auto"
+      >
+        <div class="flex flex-col items-center gap-5">
+          <h2 class="uppercase text-primary text-label1 font-semibold">
+            Testimonials
+          </h2>
+          <h1 class="font-bold text-h2 text-center">Our Client Reviews</h1>
+        </div>
+        <div
+          class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-10"
+        >
+          <div class="up relative">
+            <img
+              src="./assets/testimonials/testimonials-1.png"
+              alt="Testimonial-1 Image"
+            />
+            <div
+              class="bg-white rounded-2xl absolute bottom-[3%] right-[5%] w-[90%] flex flex-col items-center py-4"
+            >
+              <div class="relative bg-white p-3 -translate-y-12 rounded-full">
+                <img
+                  src="./assets//testimonials/avtar-1.png"
+                  alt="Avtar-1 Image"
+                  class="h-14 w-14"
+                />
+                <img
+                  src="./assets//testimonials/avtar-1.png"
+                  alt="Avtar-1 Image"
+                  class="absolute -translate-y-12 h-14 w-14 z-[-1] opacity-75 blur-md"
+                />
+              </div>
+              <div class="-mt-12 flex flex-col items-center">
+                <div class="flex flex-col items-center">
+                  <h3 class="font-bold text-body3">Bang Upin</h3>
+                  <h4 class="text-body6">Pedagang Asongan</h4>
+                </div>
+                <p class="text-center my-3 sm:my-6 text-body5">
+                  “Terimakasih banyak, kini ruanganku menjadi lebih mewah dan
+                  terlihat mahal“
+                </p>
+                <div class="flex items-center gap-1">
+                  <img
+                    src="./assets/testimonials/star.svg"
+                    alt="Star Icon"
+                    class="h-5 w-5"
+                  />
+                  <img
+                    src="./assets/testimonials/star.svg"
+                    alt="Star Icon"
+                    class="h-5 w-5"
+                  />
+                  <img
+                    src="./assets/testimonials/star.svg"
+                    alt="Star Icon"
+                    class="h-5 w-5"
+                  />
+                  <img
+                    src="./assets/testimonials/star.svg"
+                    alt="Star Icon"
+                    class="h-5 w-5"
+                  />
+                  <img
+                    src="./assets/testimonials/star-fade.svg"
+                    alt="Fade Star Icon"
+                    class="h-5 w-5"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="down relative">
+            <img
+              src="./assets/testimonials/testimonials-2.png"
+              alt="Testimonial-2 Image"
+            />
+            <div
+              class="bg-white rounded-2xl absolute bottom-[3%] right-[5%] w-[90%] flex flex-col items-center py-4"
+            >
+              <div class="relative bg-white p-3 -translate-y-12 rounded-full">
+                <img
+                  src="./assets//testimonials/avtar-2.png"
+                  alt="Avtar-1 Image"
+                  class="h-14 w-14"
+                />
+                <img
+                  src="./assets//testimonials/avtar-2.png"
+                  alt="Avtar-1 Image"
+                  class="absolute -translate-y-12 h-14 w-14 z-[-1] opacity-75 blur-md"
+                />
+              </div>
+              <div class="-mt-12 flex flex-col items-center">
+                <div class="flex flex-col items-center">
+                  <h3 class="font-bold text-body3">Ibuk Sukijan</h3>
+                  <h4 class="text-body6">Ibu Rumah Tangga</h4>
+                </div>
+                <p class="text-center my-3 sm:my-6 text-body5">
+                  “Makasih Panto, aku sekarang berasa tinggal di apartment
+                  karena barang-barang yang terlihat mewah“
+                </p>
+                <div class="flex items-center gap-1">
+                  <img
+                    src="./assets/testimonials/star.svg"
+                    alt="Star Icon"
+                    class="h-5 w-5"
+                  />
+                  <img
+                    src="./assets/testimonials/star.svg"
+                    alt="Star Icon"
+                    class="h-5 w-5"
+                  />
+                  <img
+                    src="./assets/testimonials/star.svg"
+                    alt="Star Icon"
+                    class="h-5 w-5"
+                  />
+                  <img
+                    src="./assets/testimonials/star.svg"
+                    alt="Star Icon"
+                    class="h-5 w-5"
+                  />
+                  <img
+                    src="./assets/testimonials/star-fade.svg"
+                    alt="Fade Star Icon"
+                    class="h-5 w-5"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="up relative">
+            <img
+              src="./assets/testimonials/testimonials-3.png"
+              alt="Testimonial-3 Image"
+            />
+            <div
+              class="bg-white rounded-2xl absolute bottom-[3%] right-[5%] w-[90%] flex flex-col items-center py-4"
+            >
+              <div class="relative bg-white p-3 -translate-y-12 rounded-full">
+                <img
+                  src="./assets//testimonials/avtar-3.png"
+                  alt="Avtar-1 Image"
+                  class="h-14 w-14"
+                />
+                <img
+                  src="./assets//testimonials/avtar-3.png"
+                  alt="Avtar-1 Image"
+                  class="absolute -translate-y-12 h-14 w-14 z-[-1] opacity-75 blur-md"
+                />
+              </div>
+              <div class="-mt-12 flex flex-col items-center">
+                <div class="flex flex-col items-center">
+                  <h3 class="font-bold text-body3">Mpok Ina</h3>
+                  <h4 class="text-body6">Karyawan Swasta</h4>
+                </div>
+                <p class="text-center my-3 sm:my-6 text-body5">
+                  “Sangat terjangkau untuk kantong saya yang tidak terlalu
+                  banyak“
+                </p>
+                <div class="flex items-center gap-1">
+                  <img
+                    src="./assets/testimonials/star.svg"
+                    alt="Star Icon"
+                    class="h-5 w-5"
+                  />
+                  <img
+                    src="./assets/testimonials/star.svg"
+                    alt="Star Icon"
+                    class="h-5 w-5"
+                  />
+                  <img
+                    src="./assets/testimonials/star.svg"
+                    alt="Star Icon"
+                    class="h-5 w-5"
+                  />
+                  <img
+                    src="./assets/testimonials/star.svg"
+                    alt="Star Icon"
+                    class="h-5 w-5"
+                  />
+                  <img
+                    src="./assets/testimonials/star-fade.svg"
+                    alt="Fade Star Icon"
+                    class="h-5 w-5"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer class="w-full bg-[#F7F7F7]">
+        <div
+          class="max-w-7xl mx-auto px-4 sm:px-6 xl:px-0 pt-10 md:pt-28 pb-10 md:pb-14"
+        >
+          <!-- Top section -->
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-20">
+            <!-- Brand -->
+            <div class="gap-7 flex flex-col items-center sm:items-start">
+              <h1 class="text-logo font-bold">Panto</h1>
+              <p
+                class="font-medium text-body4 max-w-sm text-center sm:text-left"
+              >
+                The advantage of hiring a workspace with us is that gives you
+                comfortable service and all-around facilities.
+              </p>
+            </div>
+
+            <!-- Links -->
+            <div
+              class="grid grid-col-1 sm:grid-cols-3 gap-10 sm:gap-16 justify-center"
+            >
+              <!-- Services -->
+              <div class="flex flex-col items-center sm:items-start gap-5">
+                <h2 class="text-label2 text-primary100">Services</h2>
+                <ul class="flex flex-col items-center sm:items-start gap-4">
+                  <li class="font-medium text-body4">Email Marketing</li>
+                  <li class="font-medium text-body4">Campaigns</li>
+                  <li class="font-medium text-body4">Branding</li>
+                </ul>
+              </div>
+
+              <!-- Furniture -->
+              <div class="flex flex-col items-center sm:items-start gap-5">
+                <h2 class="text-label2 text-primary100">Furniture</h2>
+                <ul class="flex flex-col items-center sm:items-start gap-4">
+                  <li class="font-medium text-body4">Beds</li>
+                  <li class="font-medium text-body4">Chair</li>
+                  <li class="font-medium text-body4">All</li>
+                </ul>
+              </div>
+
+              <!-- Social -->
+              <div class="flex flex-col items-center sm:items-start gap-5">
+                <h2 class="text-label2 text-primary100">Follow Us</h2>
+                <ul class="flex flex-col items-center sm:items-start gap-4">
+                  <li class="flex items-center gap-3 font-medium text-body4">
+                    <img src="./assets/footer/facebook.svg" alt="Facebook" />
+                    Facebook
+                  </li>
+                  <li class="flex items-center gap-3 font-medium text-body4">
+                    <img src="./assets/footer/twitter.svg" alt="Twitter" />
+                    Twitter
+                  </li>
+                  <li class="flex items-center gap-3 font-medium text-body4">
+                    <img src="./assets/footer/instagram.svg" alt="Instagram" />
+                    Instagram
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom section -->
+          <div
+            class="mt-28 flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-0 text-body6"
+          >
+            <span class="text-body4 text-[#1E2833]">Copyright © 2021</span>
+
+            <div class="flex gap-10 items-center">
+              <a href="#" class="text-body4 font-medium">Terms & Conditions</a>
+              <a href="#" class="text-body4 font-medium">Privacy Policy</a>
+            </div>
+          </div>
+        </div>
+      </footer>
     </main>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
