@@ -1,0 +1,787 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AirPods Max Custom Viewer</title>
+    <style>
+        body { margin: 0; background: #111; overflow: hidden; font-family: sans-serif; }
+        #loader {
+            position: absolute; width: 100%; height: 100%; 
+            display: flex; justify-content: center; align-items: center;
+            color: white; background: #000; z-index: 100;
+        }
+    </style>
+</head>
+<body>
+    <div id="loader">INITIALIZING ENGINE...</div>
+
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+            }
+        }
+    </script>
+
+    <script type="module">
+        import * as THREE from 'three';
+        import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+        import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 100);
+        camera.position.set(0, 0, 0.8);
+
+        const renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.toneMapping = THREE.ACESFilmicToneMapping;
+        renderer.toneMappingExposure = 1.0;
+        document.body.appendChild(renderer.domElement);
+
+        const controls = new OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+
+        // Environment Setup (Makes metal look realistic)
+        const pmremGenerator = new THREE.PMREMGenerator(renderer);
+        scene.environment = pmremGenerator.fromScene(new THREE.Scene()).texture;
+
+        // Lighting
+        const light = new THREE.DirectionalLight(0xffffff, 2);
+        light.position.set(2, 2, 5);
+        scene.add(light);
+        scene.add(new THREE.AmbientLight(0xffffff, 0.5));
+
+        const loader = new GLTFLoader();
+        
+        // Replace 'airpods_max.glb' with the exact filename if it's different
+        loader.load('airpods_max.glb', 
+            (gltf) => {
+                const model = gltf.scene;
+                
+                // Auto-center and scale
+                const box = new THREE.Box3().setFromObject(model);
+                const size = box.getSize(new THREE.Vector3());
+                const center = box.getCenter(new THREE.Vector3());
+                
+                model.position.x += (model.position.x - center.x);
+                model.position.y += (model.position.y - center.y);
+                model.position.z += (model.position.z - center.z);
+                
+                scene.add(model);
+                document.getElementById('loader').style.display = 'none';
+                console.log("Model Loaded Successfully");
+            },
+            (xhr) => {
+                const percent = Math.round((xhr.loaded / xhr.total) * 100);
+                document.getElementById('loader').innerText = `LOADING: ${percent}%`;
+            },
+            (error) => {
+                document.getElementById('loader').innerText = "ERROR LOADING MODEL. CHECK CONSOLE.";
+                console.error(error);
+            }
+        );
+
+        function animate() {
+            requestAnimationFrame(animate);
+            controls.update();
+            renderer.render(scene, camera);
+        }
+        animate();
+
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+    </script>
+</body>
+</html> -->
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SonicX Pro - Premium 3D Headphones</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #00d4ff;
+            --secondary: #1a1a2e;
+            --accent: #ff006e;
+            --text: #e0e0e0;
+            --bg: #0f0f1e;
+            --border: #2a2a3e;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 2rem;
+            background: rgba(15, 15, 30, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        nav a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 10;
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            margin-bottom: 1rem;
+            line-height: 1.1;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin-bottom: 2rem;
+            opacity: 0.8;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 0.8rem 2.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+        }
+
+        /* 3D Canvas Section */
+        .canvas-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(180deg, var(--secondary), var(--bg));
+            margin: 0;
+        }
+
+        #canvas {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        #loader {
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            color: var(--primary);
+            background: var(--secondary);
+            z-index: 100;
+            font-size: 1.2rem;
+        }
+
+        .loader-spinner {
+            border: 3px solid var(--border);
+            border-top: 3px solid var(--primary);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin-right: 1rem;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Features Section */
+        .features {
+            padding: 8rem 2rem;
+            background: var(--bg);
+        }
+
+        .features-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .features-header h2 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 1rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            padding: 2rem;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            background: rgba(26, 26, 46, 0.5);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-card p {
+            color: rgba(224, 224, 224, 0.7);
+            font-size: 0.95rem;
+        }
+
+        /* Specs Section */
+        .specs {
+            padding: 8rem 2rem;
+            background: linear-gradient(180deg, var(--secondary), var(--bg));
+        }
+
+        .specs-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .specs-header h2 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 1rem;
+        }
+
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .spec-item {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .spec-value {
+            font-size: 2rem;
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .spec-label {
+            color: rgba(224, 224, 224, 0.6);
+            font-size: 0.95rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 8rem 2rem;
+            text-align: center;
+            background: var(--bg);
+        }
+
+        .cta-section h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 2rem;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            color: rgba(224, 224, 224, 0.7);
+            margin-bottom: 2rem;
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 2rem;
+            text-align: center;
+            border-top: 1px solid var(--border);
+            color: rgba(224, 224, 224, 0.5);
+        }
+
+        /* Scroll reveal animations */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .scroll-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+                font-size: 0.8rem;
+            }
+
+            .hero {
+                padding-top: 60px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .features, .specs, .cta-section {
+                padding: 4rem 1rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">SonicX Pro</div>
+        <ul>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#specs">Specs</a></li>
+            <li><a href="#cta">Shop</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-content scroll-reveal">
+            <h1>Experience Sound<br>Like Never Before</h1>
+            <p class="hero-subtitle">Premium 3D Headphones - Crystal Clear Audio</p>
+            <button class="cta-button" onclick="document.getElementById('canvas-section').scrollIntoView()">View Product</button>
+        </div>
+    </section>
+
+    <!-- 3D Canvas Section -->
+    <section class="canvas-container" id="canvas-section">
+        <div id="loader">
+            <div class="loader-spinner"></div>
+            <span>Loading Premium Experience...</span>
+        </div>
+        <canvas id="canvas"></canvas>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="features-header scroll-reveal">
+            <h2>Why Choose SonicX Pro</h2>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card scroll-reveal">
+                <div class="feature-icon">🔊</div>
+                <h3>40Hz Audio</h3>
+                <p>Ultra-high fidelity sound with crystal clear treble and deep bass response.</p>
+            </div>
+            <div class="feature-card scroll-reveal">
+                <div class="feature-icon">🔋</div>
+                <h3>60-Hour Battery</h3>
+                <p>Extended battery life keeps your music playing for days without charging.</p>
+            </div>
+            <div class="feature-card scroll-reveal">
+                <div class="feature-icon">🎧</div>
+                <h3>Active Noise</h3>
+                <p>Industry-leading noise cancellation technology for immersive listening.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Specs Section -->
+    <section class="specs" id="specs">
+        <div class="specs-header scroll-reveal">
+            <h2>Technical Specifications</h2>
+        </div>
+        <div class="specs-grid">
+            <div class="spec-item scroll-reveal">
+                <div class="spec-value">40Hz</div>
+                <div class="spec-label">Audio Range</div>
+            </div>
+            <div class="spec-item scroll-reveal">
+                <div class="spec-value">60hrs</div>
+                <div class="spec-label">Battery Life</div>
+            </div>
+            <div class="spec-item scroll-reveal">
+                <div class="spec-value">249g</div>
+                <div class="spec-label">Weight</div>
+            </div>
+            <div class="spec-item scroll-reveal">
+                <div class="spec-value">-30dB</div>
+                <div class="spec-label">Noise Reduction</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="cta">
+        <h2 class="scroll-reveal">Ready to Experience Premium Sound?</h2>
+        <p class="scroll-reveal">Join thousands of audiophiles worldwide</p>
+        <button class="cta-button scroll-reveal">Shop Now - $349</button>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 SonicX Pro. All rights reserved.</p>
+    </footer>
+
+    <!-- Three.js CDN -->
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+            }
+        }
+    </script>
+
+    <!-- GSAP CDN for animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <script type="module">
+        import * as THREE from 'three';
+        import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+        import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+        const canvas = document.getElementById('canvas');
+        const scene = new THREE.Scene();
+        scene.background = new THREE.Color(0x1a1a2e);
+
+        const camera = new THREE.PerspectiveCamera(45, canvas.clientWidth / canvas.clientHeight, 0.1, 100);
+        camera.position.set(0, 0, 2.5);
+
+        const renderer = new THREE.WebGLRenderer({ antialias: true, canvas: canvas });
+        renderer.setSize(canvas.clientWidth, canvas.clientHeight);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        renderer.toneMapping = THREE.ACESFilmicToneMapping;
+        renderer.toneMappingExposure = 1.0;
+
+        const controls = new OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        controls.dampingFactor = 0.05;
+        controls.enableZoom = true;
+        controls.autoRotate = true;
+        controls.autoRotateSpeed = 2;
+
+        const pmremGenerator = new THREE.PMREMGenerator(renderer);
+        scene.environment = pmremGenerator.fromScene(new THREE.Scene()).texture;
+
+        const directionalLight = new THREE.DirectionalLight(0xffffff, 2.5);
+        directionalLight.position.set(5, 5, 5);
+        scene.add(directionalLight);
+
+        const ambientLight = new THREE.AmbientLight(0x00d4ff, 0.8);
+        scene.add(ambientLight);
+
+        let model;
+        const loader = new GLTFLoader();
+
+        loader.load(
+            'airpods_max.glb',
+            (gltf) => {
+                model = gltf.scene;
+                
+                // Auto-center and scale model
+                const box = new THREE.Box3().setFromObject(model);
+                const size = box.getSize(new THREE.Vector3());
+                const maxDim = Math.max(size.x, size.y, size.z);
+                const scale = 1.5 / maxDim;
+                
+                model.scale.multiplyScalar(scale);
+                
+                const center = box.getCenter(new THREE.Vector3());
+                model.position.x += model.position.x - center.x;
+                model.position.y += model.position.y - center.y - 0.3;
+                model.position.z += model.position.z - center.z;
+
+                scene.add(model);
+                document.getElementById('loader').style.display = 'none';
+
+                setupScrollAnimations();
+            },
+            (xhr) => {
+                const percent = Math.round((xhr.loaded / xhr.total) * 100);
+                document.querySelector('#loader span').textContent = `Loading: ${percent}%`;
+            },
+            (error) => {
+                document.querySelector('#loader span').textContent = 'Error loading model';
+                console.error(error);
+            }
+        );
+
+        function setupScrollAnimations() {
+            gsap.registerPlugin(ScrollTrigger);
+
+            const canvasSection = document.getElementById('canvas-section');
+            const featuresSection = document.getElementById('features');
+            const specsSection = document.getElementById('specs');
+            const ctaSection = document.getElementById('cta');
+
+            // Timeline for all scroll-based model animations
+            const scrollTimeline = gsap.timeline({
+                scrollTrigger: {
+                    trigger: 'body',
+                    start: 'top top',
+                    end: 'bottom bottom',
+                    scrub: 1,
+                    markers: false,
+                    onUpdate: (self) => {
+                        // Continuously update based on scroll progress
+                    }
+                }
+            });
+
+            // Section 1: Canvas section - Full rotation and zoom
+            scrollTimeline.to(
+                model.rotation,
+                {
+                    x: Math.PI * 0.5,
+                    y: Math.PI * 2,
+                    z: Math.PI * 0.3,
+                    duration: 1
+                },
+                0
+            );
+
+            scrollTimeline.to(
+                model.position,
+                {
+                    x: 0.3,
+                    y: 0.2,
+                    z: 0,
+                    duration: 1
+                },
+                0
+            );
+
+            // Section 2: Features section - Tilt and scale
+            scrollTimeline.to(
+                model.rotation,
+                {
+                    x: Math.PI * 0.3,
+                    y: Math.PI * 2.5,
+                    z: Math.PI * 0.5,
+                    duration: 1
+                },
+                0.33
+            );
+
+            scrollTimeline.to(
+                model.scale,
+                {
+                    x: 1.3,
+                    y: 1.3,
+                    z: 1.3,
+                    duration: 1
+                },
+                0.33
+            );
+
+            // Section 3: Specs section - Float and spin
+            scrollTimeline.to(
+                model.rotation,
+                {
+                    x: 0,
+                    y: Math.PI * 3,
+                    z: 0,
+                    duration: 1
+                },
+                0.66
+            );
+
+            scrollTimeline.to(
+                model.position,
+                {
+                    x: -0.4,
+                    y: 0.5,
+                    z: 0.2,
+                    duration: 1
+                },
+                0.66
+            );
+
+            // Section 4: CTA section - Final showcase
+            scrollTimeline.to(
+                model.rotation,
+                {
+                    x: Math.PI * 0.2,
+                    y: Math.PI * 4,
+                    z: Math.PI * 0.1,
+                    duration: 1
+                },
+                1
+            );
+
+            scrollTimeline.to(
+                model.position,
+                {
+                    x: 0,
+                    y: 0,
+                    z: 0,
+                    duration: 1
+                },
+                1
+            );
+
+            // Camera animation following scroll
+            gsap.to(camera.position, {
+                scrollTrigger: {
+                    trigger: 'body',
+                    start: 'top top',
+                    end: 'bottom bottom',
+                    scrub: 1,
+                },
+                z: 3.5,
+                duration: 1
+            });
+
+            // Fade in hero content
+            gsap.to('.hero-content', {
+                scrollTrigger: {
+                    trigger: '.hero',
+                    start: 'top center',
+                    scrub: 1,
+                },
+                opacity: 1,
+                duration: 0.5,
+            });
+
+            // Reveal scroll elements on scroll
+            const revealElements = document.querySelectorAll('.scroll-reveal');
+            revealElements.forEach((element) => {
+                gsap.to(element, {
+                    scrollTrigger: {
+                        trigger: element,
+                        start: 'top 80%',
+                        onEnter: () => element.classList.add('active'),
+                    },
+                    duration: 0.8,
+                });
+            });
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+            controls.update();
+            renderer.render(scene, camera);
+        }
+        animate();
+
+        window.addEventListener('resize', () => {
+            const width = canvas.clientWidth;
+            const height = canvas.clientHeight;
+            camera.aspect = width / height;
+            camera.updateProjectionMatrix();
+            renderer.setSize(width, height);
+        });
+    </script>
+</body>
+</html>
