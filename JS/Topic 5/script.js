@@ -50,6 +50,7 @@ function unstableTask() {
     }, 500);
   });
 }
+
 async function retryTask(task, retries) {
   try {
     const result = await task();

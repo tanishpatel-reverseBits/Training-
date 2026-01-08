@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="theme.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="config.js"></script>
+  </head>
+  <body>
+    <main
+      class="flex items-center justify-center w-full h-screen overflow-hidden"
+    >
+      <div
+        class="absolute inset-0 w-full h-full z-10 bg-black/30 backdrop-blur-sm"
+      ></div>
+      <img
+        class="absolute inset-0 w-full h-full z-0"
+        src="./assets/contact/contact-back.png"
+        alt="Contact Us Background Image"
+      />
+      <section
+        class="relative z-20 max-w-3xl mx-auto p-8 bg-white rounded-2xl shadow-lg"
+      >
+        <h2 class="text-h2 font-semibold mb-2">Contact Us</h2>
+        <p class="text-gray-500 mb-8">
+          Have a question about our furniture or need a custom order? Fill out
+          the form and we’ll get back to you.
+        </p>
+
+        <form id="contactForm" class="space-y-6">
+          <!-- Customer Info -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <input
+              id="fullName"
+              type="text"
+              placeholder="Full Name"
+              class="placeholder:text-gray-700 w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary"
+              required
+            />
+
+            <input
+              id="email"
+              type="email"
+              placeholder="Email Address"
+              class="placeholder:text-gray-700 w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary"
+              required
+            />
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <input
+              id="phoneNumber"
+              type="tel"
+              placeholder="Phone Number"
+              class="placeholder:text-gray-700 w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary"
+            />
+
+            <input
+              id="city"
+              type="text"
+              placeholder="City"
+              class="placeholder:text-gray-700 w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary"
+            />
+          </div>
+
+          <!-- Inquiry Type -->
+          <div>
+            <select
+              id="inquiryType"
+              class="text-gray-700 w-full border border-gray-300 rounded-lg px-4 py-3 bg-white focus:outline-none focus:ring-2 focus:ring-primary"
+            >
+              <option value="">Select Inquiry Type</option>
+              <option>General Inquiry</option>
+              <option>Product Inquiry</option>
+              <option>Custom Furniture</option>
+              <option>Bulk Order</option>
+              <option>Support / Complaint</option>
+            </select>
+          </div>
+
+          <!-- Product Related -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <input
+              id="productName"
+              type="text"
+              placeholder="Product Name / Code"
+              class="placeholder:text-gray-700 w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary"
+            />
+
+            <select
+              id="preferredMaterial"
+              class="text-gray-700 w-full border border-gray-300 rounded-lg px-4 py-3 bg-white focus:outline-none focus:ring-2 focus:ring-primary"
+            >
+              <option>Preferred Material</option>
+              <option>Wood</option>
+              <option>Metal</option>
+              <option>Glass</option>
+              <option>Upholstered</option>
+            </select>
+          </div>
+
+          <!-- Message -->
+          <div>
+            <textarea
+              id="message"
+              rows="5"
+              placeholder="Your Message / Requirements"
+              class="placeholder:text-gray-700 w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary resize-none"
+            ></textarea>
+          </div>
+
+          <!-- Preferences -->
+          <div
+            class="flex flex-col md:flex-row md:items-center md:justify-between gap-4"
+          >
+            <div class="flex items-center gap-4">
+              <span class="text-gray-600">Preferred Contact:</span>
+              <label class="flex items-center gap-2">
+                <input
+                  value="email"
+                  type="radio"
+                  name="contact"
+                  class="accent-amber-600"
+                />
+                Email
+              </label>
+              <label class="flex items-center gap-2">
+                <input
+                  value="phone"
+                  type="radio"
+                  name="contact"
+                  class="accent-amber-600"
+                />
+                Phone
+              </label>
+            </div>
+
+            <label class="flex items-center gap-2 text-gray-600">
+              <input id="urgent" type="checkbox" class="accent-amber-600" />
+              Urgent request
+            </label>
+          </div>
+
+          <!-- Submit -->
+          <div>
+            <button
+              type="submit"
+              class="w-full bg-primary text-white py-3 rounded-xl font-medium hover:bg-amber-600 transition"
+            >
+              Send Message
+            </button>
+          </div>
+        </form>
+      </section>
+    </main>
+    <script src="contact.js"></script>
+  </body>
+</html>
