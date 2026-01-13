@@ -64,7 +64,7 @@ async function submitContactForm(formData) {
 
     validateForm(formData);
 
-    debugger; // pause here during debugging if needed
+    debugger;
 
     const response = await fakeApiRequest(formData);
 
@@ -97,3 +97,72 @@ const formData = { name: "Bob", email: "bobexample.com" };
 submitContactForm(formData).then((result) => {
   console.log("Result:", result);
 });
+
+// Implement Global Error Handling
+class AppError extends Error {
+  constructor(message, status) {
+    super(message);
+    this.name = "AppError";
+    this.status = status;
+  }
+}
+
+function getUser(id) {
+  if (!id) {
+    throw new AppError("User ID is required", 400);
+  }
+
+  if (id != 1) {
+    throw new AppError("Invalid user ID", 400);
+  }
+
+  return { id: 1, name: "Tanish" };
+}
+
+async function fetchOrders(userId) {
+  if (!userId) {
+    throw new Error("Orders: userId missing");
+  }
+
+  return ["order-1", "order-2"];
+}
+
+function GlobalErrorHandler(error) {
+  console.error("Global Error Caught:", {
+    name: error.name,
+    message: error.message,
+    status: error.status || "N/A",
+  });
+}
+
+async function main() {
+  try {
+    const user = getUser(2);
+    const orders = await fetchOrders(user.id);
+    console.log("Orders fetched:", orders);
+  } catch (error) {
+    GlobalErrorHandler(error);
+  }
+}
+
+main();
+
+// Handle API errors properly
+async function loadUsers() {
+  try {
+    const res = await fetch("https://jsonplaceholder.typicode.com/invalid-url");
+
+    // ❗ fetch does NOT throw on 404/500
+    if (!res.ok) {
+      throw new Error("Server error: " + res.status);
+    }
+
+    const data = await res.json();
+    console.log("Users:", data);
+  } catch (error) {
+    console.error("API ERROR:", error.message);
+    alert("Failed to load users");
+  }
+}
+
+loadUsers();
