@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body style="height: 1000vh">
+    <button id="btn">Start Heavy Work</button>
+    <p id="status">Idle</p>
+    <div id="box"></div>
+    <script>
+      const worker = new Worker("worker.js");
+
+      worker.onmessage = (e) => {
+        document.getElementById("status").textContent = "Result: " + e.data;
+      };
+
+      document.getElementById("btn").onclick = () => {
+        document.getElementById("status").textContent = "Working...";
+        worker.postMessage(1000000000); // send data to worker
+      };
+    </script>
+    <script src="script.js"></script>
+  </body>
+</html>
