@@ -77,20 +77,23 @@ console.log(sum([1, 2, 3]));
 console.log(sum([4, 5, 6]));
 console.log(sum([4, 5, 6]));
 
-let lastArr = null;
-let lastTotal = null;
-function optimizedSum(arr) {
-  if (arr === lastArr) {
-    return lastTotal;
-  }
-
-  const total = arr.reduce((acc, ele) => acc + ele, 0);
-
-  lastArr = arr;
-  lastTotal = total;
-  return total;
+function memooization(fn) {
+  let cache = {};
+  return (arr) => {
+    if (cache[arr]) return cache[arr];
+    const total = fn(arr);
+    cache[arr] = total;
+    return total;
+  };
 }
+const optimizedSum = memooization((arr) => {
+  const total = arr.reduce((acc, ele) => acc + ele, 0);
+  console.log("Calculating...");
+  return total;
+});
 console.log(optimizedSum([1, 2, 3]));
 console.log(optimizedSum([1, 2, 3]));
 console.log(optimizedSum([4, 5, 6]));
+console.log(optimizedSum([4, 5, 6]));
+console.log(optimizedSum([1, 2, 3]));
 console.log(optimizedSum([4, 5, 6]));
